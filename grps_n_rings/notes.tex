@@ -1,6 +1,8 @@
 \documentclass[12pt]{report}
 \usepackage{fancyhdr}
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage[a4paper, width=150mm,top=25mm,bottom=25mm]{geometry}
 \pagestyle{fancy}
@@ -9,11 +11,59 @@
 \fancyhead[R]{\small\rightmark}
 % \theoremstyle{definition}
 \newtheorem{thm}{Theorem}
-\newtheorem{lem}[thm]{Lemma}
+\newtheorem{lem}{Lemma}
 \newtheorem{defn}{Definition}
+\newtheorem*{rem}{Remark}
+\newtheorem{prop}{Proposition}
 
 \begin{document}
-\section*{Lecture 1}
+\section*{Lecture 1: Theory of Groups and Rings}
+\begin{defn}
+    Fibre of $f$ over $b$: For a function $f:A\to B$, the pre-image of $b \in B$ is called the fibre of $f$ over $b$.
+\end{defn}
+\begin{defn}
+    Equivalence class of $a \in A$ is defined to be $\{x \mid xRa\}$. The elements of equivalence class of $a \in A$ are said to be equivalent to $a$ and any element of this class is called the representative of this class. They are denoted by $[a]$. 
+\end{defn}
+\begin{lem}
+    Any two equivalence classes are either disjoint or equal.
+\end{lem}
+\begin{proof}
+    Suppose, we have two equivalence classes $[a]$ and $[b]$ such that $[a] \neq [b]$. We need to prove that $[a] \cap [b]= \phi$ Suppose for contradiction that $\exists x$ such that $x = [a] \cap [b]$. This means that $xRa$ and $xRb$. Using symmetry of equivalence relation, we have $aRx$ and $xRb$ and by transitivity we can say $aRb$. Hence, $[a] = [b]$ which is a contradiction.\\
+    We have prove that if they are not equal then they are disjoint. Other way can be proved with similar argument. 
+\end{proof}
+\begin{defn}
+    Partition of $A$: A partition of $A$ is any collection $\{A_i \mid i \in I\}$ of non-empty subsets of $A$ such that it follows:
+    \begin{enumerate}
+        \item $\bigcup\limits_{i \in I} A_i = A$, and
+        \item $A_i \bigcap A_j = \phi ~~\forall i,j \in I$ and $i \neq j$.
+    \end{enumerate}
+\end{defn}
+\begin{rem}
+    The notion of an equivalence relation on $A$ and a partition of $A$ are the same.
+\end{rem}
+For a set $A$, every equivalence relation on $A$ \textit{induces} the partition on set $A$ using equivalence classes. In other words, every equivalence class associated with a equivalence relation forms partition of $A$.\\
+If $R$ is the equivalence relation on $A$ then the induced partition $P$ will be $$ P = \{\{b \mid bRa, \forall b \in A\} \mid a \in A\}$$
+Also, with the given partition $P$, we can define relation $R$ as $$ R = \{bRa \mid \exists p_i \in P ~\text{such that}~ a, b \in p_i ~\forall i \in I\}$$
+We can say a partition $P$ is made up of equivalence classes $p_i$.
+\begin{prop}
+    Let $A$ be a nonempty set.
+    \begin{enumerate}
+        \item If $R$ defines a equivalence relation on $A$ then the set of equivalence classes of $R$ forms a partition of $A$. 
+        \item If $\{A_i \mid i \in I\}$ is a partition of $A$ then there is an equivalence relation on $A$ whose equivalence classes are sets $A_i, i \in I$. 
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    \begin{enumerate}
+        \item Suppose $P$ is a set of equivalence classes of $R$, defined as $$ P = \{\{b \mid bRa, b \in A\} \mid a \in  A\}$$ We need to prove that $P$ defines partition of $A$. For some $p_i \in P$, it will be nonempty since it will have atleast $a$ which is related to itself. Now, using lemma $1$, we can say that $p_i \cap p_j = \phi$ for some $p_i,p_j \in P~\text{and}~ i,j \in \mathbb{N}$ given that $i \neq j$. Union property TBD.
+        \item Given the collection of sets, $Q = \{A_i \mid i \in I\}$ as a partition of $A$, we need to show that there exists an equivalence relation on $A$ with equivalence classes as sets $A_i, i \in I$.\\
+        We can define relation $R$ as
+        $$ R = \{(a,b) \mid bRa~\text{and}~\exists A_i \in Q~\text{such that}~a,b \in A_i\}$$
+        It is reflexive (obvious), symmetric (obvious) and transitive ($aRb$ such that $a,b \in A_i$ and $bRc$ such that $b,c \in A_i \implies aRc$ such that $a,c \in A_i$). Hence, it is a equivalence relation and the corresponding equivalence class for some $i$ will be 
+        $$ q_i = \{b \mid bRa_i, \forall b \in A~ \&~ a_i \in A\}$$ 
+        Since with the same arguments given in proof of part $(1)$ that $q_i, i \in I$ is nonempty, disjoint and exhausts the set $A$, we can say it forms the partition of $A$ and since every equivalence relation induces a unique partition, we can also say that $q_i, i \in I$ are precisely the sets $A_i, i \in I$.
+    \end{enumerate}
+\end{proof}
+
 
 
 
