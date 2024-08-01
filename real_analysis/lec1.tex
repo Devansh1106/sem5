@@ -91,5 +91,62 @@
     Let the lenght of the interval to be $L = |b_n - a_n|$. Suppose for contradiction, we have two elements in $\bigcap\limits_{n\geq 1}I_n$ instead of one, say $x$ and $y$. \\ The distance between $x$ and $y$ is $|y - x|$. Since, $L \to 0$ hence $\exists n \in \mathbb{N}$ such that for some $n_0 \geq n$, $|L| = |b_{n_0} - a_{n_0}|< \epsilon$ for some $\epsilon > 0$. Since $|L| \to 0$, we can choose $\epsilon$ such that it is smaller than $|y - x|$. Then, if interval contains any one of the point, it can not contain the other.
 \end{proof}
 
+\hrule
+\section*{Lecture 2}
+\begin{defn}
+    Decimals representation of Real numbers: Let $z \in \mathbb{R}^+$ be given. Let $n_0$ be the largest integer such that $n_0 \leq z$. Let $n_1$ be the largest integer such that $n_0 + \frac{n_1}{10} \leq z$. As such, say $n_k$ is defined for some $k$. Let $n_{k+1}$ be the largest integer such that $n_0 + \frac{n_1}{10^1} + \frac{n_1}{10^2} + \dots + \frac{n_k}{10^k}+\frac{n_{k+1}}{10^{k+1}} \leq z$. Consider the set of all such finite sums, i.e. the set of all
+    $$ z_k = n_0 + \frac{n_1}{10^1} + \frac{n_1}{10^2} + \dots + \frac{n_k}{10^k}+\frac{n_{k+1}}{10^{k+1}} \leq z$$
+    This set has a supremum and that is $z$ itself. We symbolically write $z = n_0.n_1n_2 \dots $
+\end{defn}
+\begin{lem}
+    Let $p$ be an integer $\geq 2$. If $0 \leq a_n \leq p-1$, where $a_n$ is an integer then $\sum\limits_{n=0}^{\infty} \frac{a_n}{p_n}$ converges to some $x$ in $[0,1]$.
+\end{lem}
+\begin{proof}
+    Since $0 \leq a_n \leq p-1$, we can replace all $a_n$ with $p-1$ and then we have$$ \sum\limits_{n=1}^{\infty} \frac{a_n}{p_n} \leq (p-1)\sum\limits_{n=1}^{\infty} \frac{1}{p_n} = 1$$
+    Therefore, the sequence is bounded, and it is monotonic increasing this means it converges to some $x \leq 1$ and $x$ is already positive. Hence it converges tp some $x$ in $[0,1]$. 
+\end{proof}
+\begin{lem}
+    Conversely, given any  $ 0 \leq x \leq 1, \exists~ a_n \in \mathbb{Z}$ and $0 \leq  a_n \leq p-1$ such that $x = \sum\limits_{n=0}^{\infty} \frac{a_n}{p_n}$.
+\end{lem}
+\begin{proof}
+    Suppose we have $0 < x \leq 1$ and $a_1$ is the largest integer such that $ \frac{a_1}{p} < x \leq 1$. Since $x$ is bounded above by $1$, we have $ a_1 < p$ $\implies$ $a_1 \leq p-1$ since $a_1$ is an integer. Similarly, find $a_2$ such that $\frac{a_1}{p} + \frac{a_2}{p^2} < x$.This can be achieved by Archimedean property. Also, note that $a_2 \leq p-1$, since we have 
+    \begin{align*}
+        \frac{a_1}{p} + \frac{a_2}{p^2} &< x < 1\\
+        \frac{a_1}{p} + \frac{a_2}{p^2} \leq \frac{p-1}{p} + \frac{a_2}{p^2} &< 1~~~~ (a_1 \leq p-1)\\
+        1 - \frac{1}{p} + \frac{a_2}{p^2} &< 1\\
+        \frac{a_2}{p^2} &< \frac{1}{p}\\
+        a_2 &< p \\
+        a_2 &\leq p-1
+    \end{align*}
+Inductively, we can define $a_n$ as the largest integer with $a_n \leq p-1$ such that $\sum\limits_{i=1}^{n} \frac{a_i}{p_i} < x$. Since $a_n < p$
+TBD
+\end{proof}
+Suppose $\{a_n\}$ is the bounded sequence in $\mathbb{R}$, we define two sets: 
+\begin{align*}
+    s_n &:= inf\{a_n, a_{n+1}, \dots \}\\
+    S_n &:= sup\{a_n, a_{n+1}, \dots \}
+\end{align*}
+Notice that $ \underset{k}{inf}(\{a_n\}) \leq s_n \leq S_n \leq \underset{k}{sup}(\{s_n\})$
+\begin{defn}
+    Lim superior and limit inferior: Let $a_n$ be the bounded sequence of real numbers then
+    \begin{align*}
+        \lim inf(a_n) &= \lim_{n\to \infty} s_n\\
+        \lim sup(a_n) &= \lim_{n\to \infty} S_n
+    \end{align*}
+\end{defn}
+Limit superior is the supremum of all subsequential limits of $\{a_n\}$. Similarly, limit inferior is the infimum of all subsequential limits of $\{a_n\}$.
+
+Note that $s_n$ is the increasing sequence and $S_n$ is the decreasing sequence and they are bounded on both sides. Hence, we can also say that using monotone convergence theorem
+\begin{align*}
+    \lim inf(a_n) &= \lim_{n\to \infty} s_n = sup(s_n)\\
+    \lim sup(a_n) &= \lim_{n\to \infty} S_n = inf(S_n)
+\end{align*}
+\begin{thm}
+    A sequence $\{a_n\}$ is bounded above iff limsup $a_n < \infty$ (is finite).
+\end{thm}
+\begin{proof}
+    
+\end{proof}
+
 
 \end{document}
