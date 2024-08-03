@@ -54,7 +54,8 @@ We can say a partition $P$ is made up of equivalence classes $p_i$.
 \end{prop}
 \begin{proof}
     \begin{enumerate}
-        \item Suppose $P$ is a set of equivalence classes of $R$, defined as $$ P = \{\{b \mid bRa, b \in A\} \mid a \in  A\}$$ We need to prove that $P$ defines partition of $A$. For some $p_i \in P$, it will be nonempty since it will have atleast $a$ which is related to itself. Now, using lemma $1$, we can say that $p_i \cap p_j = \phi$ for some $p_i,p_j \in P~\text{and}~ i,j \in \mathbb{N}$ given that $i \neq j$. Union property TBD.
+        \item Suppose $P$ is a set of equivalence classes of $R$, defined as $$ P = \{\{b \mid bRa, b \in A\} \mid a \in  A\}$$ We need to prove that $P$ defines partition of $A$. For some $p_i \in P$, it will be nonempty since it will have atleast $a$ which is related to itself. Now, using lemma $1$, we can say that $p_i \cap p_j = \phi$ for some $p_i,p_j \in P~\text{and}~ i,j \in \mathbb{N}$ given that $i \neq j$. \\
+        Also, we know that every point of set $A$ will be in some equivalence class (reflexivity so atleast in the equivalence of itself). If we take union of all those classes we will get $A$ as each point has a atleast a equivalence class.
         \item Given the collection of sets, $Q = \{A_i \mid i \in I\}$ as a partition of $A$, we need to show that there exists an equivalence relation on $A$ with equivalence classes as sets $A_i, i \in I$.\\
         We can define relation $R$ as
         $$ R = \{(a,b) \mid bRa~\text{and}~\exists A_i \in Q~\text{such that}~a,b \in A_i\}$$
@@ -63,8 +64,69 @@ We can say a partition $P$ is made up of equivalence classes $p_i$.
         Since with the same arguments given in proof of part $(1)$ that $q_i, i \in I$ is nonempty, disjoint and exhausts the set $A$, we can say it forms the partition of $A$ and since every equivalence relation induces a unique partition, we can also say that $q_i, i \in I$ are precisely the sets $A_i, i \in I$.
     \end{enumerate}
 \end{proof}
-
-
-
+\subsection*{Properties of Integers}
+\begin{defn}
+    Well Ordering of $\mathbb{Z}$: If $A$ is any nonempty subset of $\mathbb{Z^+}$, there is some element $m \in A$ such that $m \leq a$, $\forall a \in A$. $m$ is called the minimum element of $A$. 
+\end{defn}
+\begin{defn}
+    $ a | b =$ $a$ divides $b$. $b = ac$ for some $c \in \mathbb{Z}$.
+\end{defn}
+\begin{defn}
+    For some $a, b \in \mathbb{Z}$, denote $d = gdc(a,b)$ and $l = lcm(a,b)$ then $dl = ab$.
+\end{defn}
+\begin{defn}
+    The Division Algorithm: If $a,b \in \mathbb{Z} \backslash \{0\}$, then there exists a unique $q,r \in \mathbb{Z}$ such that $a = bq +r$ where $0 \leq r \leq |b|$. And $q$ is called quotient and $r$ is called remainder.
+\end{defn}
+\begin{defn}
+    The Euclidean Algorithm: Suppose $a,b \in \mathbb{Z}\backslash\{0\}$, we can use this algorithm to find the gcd of these two number in the following way:
+    \begin{align*}
+        a &= q_0b + r_0\\
+        b &= q_1r_0 + r_1\\
+        r_0 &= q_2r_1 + r_2\\
+        \vdots \\
+        r_{n-2} &= q_{n+1}r_{n-1} + r_{n}\\
+        r_{n-1} &= q_{n+2}r_{n} \\
+    \end{align*}
+    where $r_n$ is the gcd of $(a,b)$. Such an $r_n$ exists because $|b| > |r_0| > |r_1| ~\dots $ is a decreasing sequence of strictly postive integers hence it cannot go on to infinite elements.
+\end{defn}
+$\mathbb{Z}$-linear combination of $a$ and $b$: For $a,b \in \mathbb{Z}\backslash\{0\}$, we have $x,y\in \mathbb{Z}$ such that we can write $gcd(a,b)$ as linear combination of $x,y$ $$ gcd(a,b) = ax + by$$. 
+\begin{thm}
+    Fundamental Theorem of Arithmetic: If $n \in \mathbb{Z}$, $n > 1$, then $n$ can be factored uniquely into the product of primes, i.e. there are distinct primes $p_1, p_2, ~\dots,p_s$ and positive integers $\alpha_1, \alpha_2, ~\dots, \alpha_s$, such that
+    $$ n = p_1^{\alpha_1} p_2^{\alpha_2} \dots p_s^{\alpha_s} $$ 
+    This factorization is unique in the sense that the set of $p_i's$ is unique and no other set of primes and the exponent can generate the same number.
+\end{thm}
+\begin{proof}
+    We will use induction to prove the first part that every $n > 1$ can be written as the product of primes.\\
+    For $n=2$ it is true as $ 2 = 2^1$. Suppose for all the numbers less than $n$ can be written as the product of primes. Now, for $n$ we can have two cases:
+    \paragraph{Case: 1} If $n$ is prime then it is obvious that it's true.
+    \paragraph{Case: 2} If $n$ is composite then $n$ can be written as $n = ab$ where $ 0 < a,b < n$ by definition of composite numbers. And by our assumption for induction it is true thatn $a,b$ can be written as product of primes as they are less than $n$. Hence, $n = ab$ can also be a product of primes. \\
+    Now, about the uniqueness of the primes factors. Let's assume that there exists some primes $q_i's$ and the exponents $\beta_i's$ such that
+    $$ n = p_1^{\alpha_1} p_2^{\alpha_2} \dots p_s^{\alpha_s} = q_1^{\beta_1} q_2^{\beta_2} \dots q_s^{\beta_s} $$
+    Since $p_1$ divides the left side, it should also divides the right side. Hence, $p_1 | q_i$ for some $i$. But $p_1$ and $q_i$ are primes $\implies$ $p_1 = q_i$. WLOG, we can choose $i = 1$ $\implies$ $p_1 = q_1$.
+    $$ p_1^{\alpha_1} p_2^{\alpha_2} \dots p_s^{\alpha_s} = p_1^{\beta_1} q_2^{\beta_2} \dots q_s^{\beta_s}$$
+    Now, we can have $ \alpha_1 > \beta_1$ and we can cancel $p_1^{\beta_1}$ from both sides. 
+    $$ p_1^{\alpha_1 - \beta_1} p_2^{\alpha_2} \dots p_s^{\alpha_s} = q_2^{\beta_2} \dots q_s^{\beta_s}$$
+    But observe that now $p_1$ divides left side but not the right side. Hence $ \alpha_1 \ngtr \beta_1$. Similar argument for $ \alpha_1 < \beta_1$. 
+    Therefore, $\alpha_1 = \beta_1$.\\
+    Using induction we can show that both sides are equivalent. Hence, primes and their coefficients are unique.
+\end{proof}
+We can also define lcm and gcd using fundamental theorem of arithmetic as:
+\begin{align*}
+    gcd(a,b) &= p_1^{\min(\alpha_1,\beta_1)} p_2^{\min(\alpha_2,\beta_2)} ~\dots \\
+    lcm(a,b) &= p_1^{\max(\alpha_1,\beta_1)} p_2^{\max(\alpha_2,\beta_2)} ~\dots    
+\end{align*}
+\begin{defn}
+    Euler $\phi$- function: For $n \in \mathbb{Z^+}$ let $\phi(n)$ be the number of positive integers $a \leq n$ with $(a,n) = 1$. For primes $p$, $\phi(p) = p-1$, and more generally, $\forall a \geq 1$ we have
+    $$ \phi(p^a) = p^a - p^{a-1} = p^{a-1}(p-1)$$
+    The function $\phi$ is {\em multiplicative} in the sense that $ \phi(ab) = \phi(a)\phi(b)$  if $(a,b) = 1$. So for some $n = p_1{\alpha_1}p_2{\alpha_2}~\dots ~p_s{\alpha_s}$ we can write
+    $$ \phi(n) = \phi(p_1{\alpha_1}p_2{\alpha_2}~\dots ~p_s{\alpha_s}) = \phi(p_1{\alpha_1})\phi(p_2{\alpha_2}) ~\dots~ \phi(p_s{\alpha_s})$$
+\end{defn}
+\begin{thm}
+    If $n$ is composite then there are integers $a$ and $b$ such that $n\mid ab$ but $n \nmid a$ or $n \nmid b$.
+\end{thm}
+\begin{proof}
+    Since $n$ is composite then $n = x_1^{n_1} x_2^{n_2}~\dots y_1^{n_1^{'}}y_2^{n_2^{'}}~\dots $ where $ x,y$ are primes $\in (0,n)$ and $n_i's \geq 1~\forall i \in \mathbb{N}$. We have to prove the existence of the integers $a,b$ such that $n \mid ab$ but $n \nmid a$ or $n \nmid b$. \\
+    We can constuct such integers given the prime factorization of $n$. If we define $a = x_1^{n_1} x_2^{n_2}~\dots $ and $ b = y_1^{n_1^{'}}y_2^{n_2^{'}}~\dots$ then we have satisfied the needed conditions.
+\end{proof}
 
 \end{document}
