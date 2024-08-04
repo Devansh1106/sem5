@@ -11,10 +11,39 @@
 \newtheorem{thm}{Theorem}
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{defn}{Definition}
+\title{
+\author{Devansh Tripathi\\ Lecturer: Prof. K. Santhesh Kumar}
+}
 
 \begin{document}
+\maketitle
+
 \section*{Lecture 1}
-
-
-
+\begin{defn}
+    Abstraction: This refers to the concept of hiding the technical details of a system and show only the essential details.
+\end{defn}
+\begin{enumerate}
+    \item Hardware Abstraction
+    \begin{itemize}
+        \item Hardware level:
+        \item Firmware level:
+    \end{itemize}
+    \item System Software Abstraction:
+    \begin{itemize}
+        \item OS: Interacts with hardware.
+        \item Device Drivers: Specialized instruction for a specific hardware.
+    \end{itemize}  
+    \item Application Software Abstraction
+    \begin{itemize}
+        \item User level: Users do not have know the logic goes in software buiding. User should just have a knowledge of using the software. 
+        \item High level programming levels: Syntaxes of high level programming langauges are more closer to the human language. It makes syntax more readable by humans.
+    \end{itemize}
+\end{enumerate}
+`ps': For showing the process id.\\
+`ps -e': For showing the process id for all programs running. `f': List users also\\
+`grep $<$pattern$>$ $<$file-name$>$': find $<$pattern$>$ in the file named $<$file-name$>$.\\
+ps -ef | wc -l: `$\mid$': Pipe command\\
+`wc': Word count; `-l': for number of lines.\\
+Add `\&' in the end of the command for keeping it background. But output will be shown in the screen. If shell is closed output is lost. \\
+Add `nohub' in the starting then all the output is directed to the `nohub.out' file.\\ 
 \end{document}

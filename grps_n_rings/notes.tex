@@ -15,8 +15,14 @@
 \newtheorem{defn}{Definition}
 \newtheorem*{rem}{Remark}
 \newtheorem{prop}{Proposition}
+\newtheorem{proper}{Property}
+
+\title{
+\author{Devansh Tripathi\\ Lecturer:}
+}
 
 \begin{document}
+\maketitle
 \section*{Lecture 1: Theory of Groups and Rings}
 \begin{defn}
     Fibre of $f$ over $b$: For a function $f:A\to B$, the pre-image of $b \in B$ is called the fibre of $f$ over $b$.
@@ -65,9 +71,15 @@ We can say a partition $P$ is made up of equivalence classes $p_i$.
     \end{enumerate}
 \end{proof}
 \subsection*{Properties of Integers}
-\begin{defn}
+\begin{proper}
     Well Ordering of $\mathbb{Z}$: If $A$ is any nonempty subset of $\mathbb{Z^+}$, there is some element $m \in A$ such that $m \leq a$, $\forall a \in A$. $m$ is called the minimum element of $A$. 
-\end{defn}
+\end{proper}
+\begin{proof}
+    Proof for well ordering property of $\mathbb{Z}$ i.e. existence and uniqueness of minimal element.\\
+    For a nonempty subset $A$ of $\mathbb{Z^+}$, we can prove this by induction. Suppose $A = \{a_1\}$ then $a_1 \leq a_1$ hence $a_1$ is the minimal element. Suppose there exists a minimal element $m$ in the set $A$ have $n$ element $a_1, a_2 ,~\dots~ a_n$. \\
+    For the case when $A = \{a_1, a_2, ~\dots~a_{n+1}\}$, we already have $m$ as the minimal element for $\{a_1, a_2,~\dots~a_n\}$ hence there are three cases: if $a_{n+1} = m$, $a_{n+1} > m$ and $a_{n+1} < m$ and in all three cases there exists a minimal element in set $A$.\\
+    For uniqueness of minimal element, suppose for contradiction there exists two minimal elements in set $A$, say $m_1, m_2$ such that $m_1 \neq m_2$. Then there are two possibilities $m_1 > m_2$ and $m_1 < m_2$. If $m_1 > m_2$ then assume $m_1$ to be the minimal element hence this case is not possible. Similarly, $m_1 < m_2$ is also not possible assuming $m_2$ be the minimal element. Hence, contradiction. Therefore, $m_1 = m_2$. 
+\end{proof}
 \begin{defn}
     $ a | b =$ $a$ divides $b$. $b = ac$ for some $c \in \mathbb{Z}$.
 \end{defn}
@@ -119,7 +131,10 @@ We can also define lcm and gcd using fundamental theorem of arithmetic as:
     Euler $\phi$- function: For $n \in \mathbb{Z^+}$ let $\phi(n)$ be the number of positive integers $a \leq n$ with $(a,n) = 1$. For primes $p$, $\phi(p) = p-1$, and more generally, $\forall a \geq 1$ we have
     $$ \phi(p^a) = p^a - p^{a-1} = p^{a-1}(p-1)$$
     The function $\phi$ is {\em multiplicative} in the sense that $ \phi(ab) = \phi(a)\phi(b)$  if $(a,b) = 1$. So for some $n = p_1{\alpha_1}p_2{\alpha_2}~\dots ~p_s{\alpha_s}$ we can write
-    $$ \phi(n) = \phi(p_1{\alpha_1}p_2{\alpha_2}~\dots ~p_s{\alpha_s}) = \phi(p_1{\alpha_1})\phi(p_2{\alpha_2}) ~\dots~ \phi(p_s{\alpha_s})$$
+    \begin{align*}
+        \phi(n) &= \phi(p_1^{\alpha_1}p_2^{\alpha_2}~\dots ~p_s^{\alpha_s}) = \phi(p_1^{\alpha_1})\phi(p_2^{\alpha_2}) ~\dots~ \phi(p_s^{\alpha_s})\\
+        &= p_1^{\alpha_1-1}(p_1-1)p_2^{\alpha_2-1}(p_2-1) ~\dots~ p_s^{\alpha_s-1}(p_s-1)
+    \end{align*}
 \end{defn}
 \begin{thm}
     If $n$ is composite then there are integers $a$ and $b$ such that $n\mid ab$ but $n \nmid a$ or $n \nmid b$.
@@ -128,5 +143,35 @@ We can also define lcm and gcd using fundamental theorem of arithmetic as:
     Since $n$ is composite then $n = x_1^{n_1} x_2^{n_2}~\dots y_1^{n_1^{'}}y_2^{n_2^{'}}~\dots $ where $ x,y$ are primes $\in (0,n)$ and $n_i's \geq 1~\forall i \in \mathbb{N}$. We have to prove the existence of the integers $a,b$ such that $n \mid ab$ but $n \nmid a$ or $n \nmid b$. \\
     We can constuct such integers given the prime factorization of $n$. If we define $a = x_1^{n_1} x_2^{n_2}~\dots $ and $ b = y_1^{n_1^{'}}y_2^{n_2^{'}}~\dots$ then we have satisfied the needed conditions.
 \end{proof}
+\begin{thm}
+    If $p$ is a prime then $\sqrt{p}$ is not an rational number.
+\end{thm}
+\begin{proof}
+    Suppose for contradiction, $\sqrt{p}$ is a rational number. Then there exist $x, y$ such that $\sqrt{p} = \frac{x}{y}$ and $(x, y) = 1$. Then $p = (\frac{x}{y})^2$ but $p$ is a prime hence the only factorization it has is $ p = p \times 1$ and factorization is unique by fundamental theorem of arithmetic. Hence contradiction, $\sqrt{p}$ is an irrational number. 
+\end{proof}
+\paragraph*{Ques.}If $p$ is a prime then prove that there do not exist nonzero integers $a$ and $b$ such that $a^2 = pb^2$.
+\paragraph*{Ans.}If $a^2 = pb^2$ then $a = \pm \sqrt{p}b$ and using theorem 3, we can say $\sqrt{p}$ is an irrational number and the product of an irrational and an integer can never be an integer. Hence, there does not exist nonzero $a,b \in \mathbb{Z}$ such that $a^2 = pb^2$.
+\hrule
+\section*{Lecture 2}
+\paragraph*{\textbf{$\mathbb{Z}/n \mathbb{Z}$} : Integers modulo n} Let $n$ be a fixed postive integer. Define a relation $R$ on $\mathbb{Z}$ as 
+$$ aRb ~\text{{\em iff}}~ n \mid (b-a)$$ $R$ is the equivalence relation as can be verified. We call $a \equiv b \pmod n$, (read as: a is congruent to $b$ mod $n$) if $aRb$. \\
+The equivalence class of $a$ is denoted by $\bar{a}$ and called {\em congruent class or residue class of $a \mod n$}.
+\begin{align*}
+    n\mid (b-a) &\implies b-a = nk~\text{for some}~k \in \mathbb{Z}\\
+    &\implies b = a + kn ~\text{and}~ b \in \bar{a}
+\end{align*}
+For example: $\bar{0}$ = perfectly divisible by $n$. These residue classes partitions the $\mathbb{Z}$.\\
+The set of all these equivalence classes under this equivalence relation will be denoted by $\mathbb{Z}/n\mathbb{Z}$, called {\em integers modulo n} or {\em integer mod n}.\\
+The process of finding the equivalence class$\mod n$ of some integer $a$ is refered to as {\em reducing a$\mod n$}.
 
+Addition and multiplication for elements of $\mathbb{Z}/n\mathbb{Z}$:
+$$ \overline{a} + \overline{b} = \overline{a+b}~~~\text{and}~~~ \overline{a} . \overline{b} = \overline{ab}$$
+This means that we can take any {\em representative} element from class $\bar{a}$ and any {\em representative} element from class $\bar{b}$ and then do usual addition (or multiplication) then find the class in which the result lies.
+
+\textbf{For example}: If we take $\mathbb{Z}/2\mathbb{Z}$, then we have two classes $\bar{0}, \bar{1}$ (it's $0$ to $n-1$, $n=2$ here) then we can take $4$ and $7$ from $\bar{0}$ and $\bar{1}$ respectively. $4+7 = 11$ and $11$ lies in $\bar{1}$ class hence $\bar{0} + \bar{1} = \overline{4+7} = \bar{1}$.
+
+The result is well defined and does not depend upon the choice of representatives as shown by the theorem below.
+\begin{thm}
+    
+\end{thm}
 \end{document}
