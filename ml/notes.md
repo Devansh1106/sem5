@@ -1,7 +1,7 @@
 ---
-Title: Machine Learning I  
-Lecturer: Prof. M. P. Rajan  
-Author: Devansh Tripathi  
+title: Machine Learning I  
+lecturer: Prof. M. P. Rajan  
+author: Devansh Tripathi  
 ---
 Four V's of data:
 - Volume

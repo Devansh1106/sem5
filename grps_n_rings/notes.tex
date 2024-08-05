@@ -172,6 +172,24 @@ This means that we can take any {\em representative} element from class $\bar{a}
 
 The result is well defined and does not depend upon the choice of representatives as shown by the theorem below.
 \begin{thm}
-    
+    The operation of addition and multiplication on $\mathbb{Z}/n\mathbb{Z}$ defined above are well defined i.e. they do not depend on the choice of representative for the classess involved. More precisely, if $a_1$, $a_2$ $\in \mathbb{Z}$ and $b_1, b_2$ $\in \mathbb{Z}$ with $\bar{a_1} = \bar{b_1}$ and $\bar{b_1} = \bar{b_2}$, them $\overline{a_1 + a_1} = \overline{b_1 + b_2}$ and $\overline{a_1a_1} = \overline{b_1b_2}$, i.e. if 
+    $$ a_1 \equiv b_1 \pmod n~~\text{and}~~a_2 \equiv b_2 \pmod n $$
+    then 
+    $$ a_1 + a_2 \equiv b_1 + b_2 \pmod n~~\text{and}~~ a_1a_2 \equiv b_1b_2 \pmod n $$
 \end{thm}
+\begin{proof}
+    Since $a_1 \equiv b_1 \pmod n$ that means $n \mid b_1 - a_1$ and $ b_1 = a_1 + nt$. Similarly, for $a_2$, we have $ b_2 = a_2 + ns$. On adding the equations, we get $ b_1 + b_2 = a_1 + a_2 + n(t+s)$ and $b_1b_2 = n(nst + a_1t + a_2s) + a_1a_2 $. Hence, $a_1 + a_2 \equiv b_1 + b_2 \pmod n~~\text{and}~~ a_1a_2 \equiv b_1b_2 \pmod n$.
+\end{proof}
+\begin{defn}
+    A subset residue classes of $\mathbb{Z}/n\mathbb{Z}$ with multiplicative inverse lies in $\mathbb{Z}/n\mathbb{Z}$ itself:
+    $$ (\mathbb{Z}/n\mathbb{Z})^{\times} = \{ \bar{a} \in \mathbb{Z}/n\mathbb{Z} \mid \exists \bar{c} \in \mathbb{Z}/n\mathbb{Z} ~\text{with}~ \bar{a}.\bar{c} = 1\} $$
+\end{defn}
+\begin{prop}
+    Any representative of $\bar{a}$ is coprime to $n$.
+    $$(\mathbb{Z}/n\mathbb{Z})^{\times} = \{\bar{a} \in \mathbb{Z}/n\mathbb{Z} \mid (a,n) = 1\}$$
+\end{prop}
+If $a$ is integer which is coprime to $n$ then we can write $ax + ny = 1$ using Euclidean algorithm for some $x,y \in \mathbb{Z}$ $\implies$ $1 - ax = ny$ that means $ax = 1 \pmod n$ $ \implies$ $\overline{ax} = \bar{1}$ hence $\bar{x}$ is the multiplicative inverse of $\bar{a}$. Efficient way of calculating multiplicative inverse.
+\paragraph*{Ques. Prove that the distinct equivalence classes in $\mathbb{Z}/n\mathbb{Z}$ are precisely $\bar{0}, \bar{1}, \dots, \overline{n-1}$.}
+\paragraph*{Ans. }Division algorithm says that for $a, b \in \mathbb{Z}\backslash\{0\}$, we have unique $q,r \in \mathbb{Z}\backslash \{0\}$ such that $b = aq + r$ where $ 0 \leq r < |a|$. Hence, $r$ can only be $ 0,1,2 \dots n-1$ which corresponds to equivalence classes.
+
 \end{document}
