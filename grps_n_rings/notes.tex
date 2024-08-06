@@ -191,5 +191,34 @@ The result is well defined and does not depend upon the choice of representative
 If $a$ is integer which is coprime to $n$ then we can write $ax + ny = 1$ using Euclidean algorithm for some $x,y \in \mathbb{Z}$ $\implies$ $1 - ax = ny$ that means $ax = 1 \pmod n$ $ \implies$ $\overline{ax} = \bar{1}$ hence $\bar{x}$ is the multiplicative inverse of $\bar{a}$. Efficient way of calculating multiplicative inverse.
 \paragraph*{Ques. Prove that the distinct equivalence classes in $\mathbb{Z}/n\mathbb{Z}$ are precisely $\bar{0}, \bar{1}, \dots, \overline{n-1}$.}
 \paragraph*{Ans. }Division algorithm says that for $a, b \in \mathbb{Z}\backslash\{0\}$, we have unique $q,r \in \mathbb{Z}\backslash \{0\}$ such that $b = aq + r$ where $ 0 \leq r < |a|$. Hence, $r$ can only be $ 0,1,2 \dots n-1$ which corresponds to equivalence classes.
+\begin{thm}
+    If $\bar{a},\bar{b} \in (\mathbb{Z}/n\mathbb{Z})^{\times}$, then $\bar{a}.\bar{b} \in (\mathbb{Z}/n\mathbb{Z})^{\times}$.
+\end{thm}
+\begin{proof}
+    Since, $\bar{a},\bar{b} \in (\mathbb{Z}/n\mathbb{Z})^{\times}$, there exists $\bar{a'}$ and $\bar{b'}$ such that $\bar{a}.\bar{a'} = \bar{1}$ and $\bar{b}.\bar{b'} = \bar{1}$. If we multiply both the equations then $ \bar{a}.\bar{a'}.\bar{b}.\bar{b'} = \bar{1}$, Assume $\bar{a}.\bar{b} = \bar{c} \in \mathbb{Z}/n\mathbb{Z}$ then we get $\bar{c}.\bar{a'}.\bar{b'} = \bar{1}$. Hence, there exist $\bar{c'} = \bar{a'}.\bar{b'}$ such that $\bar{c}.\bar{c'} = \bar{1}$. Therefore $\bar{a}.\bar{b} \in \mathbb{Z}/\mathbb{Z}$.
+\end{proof}
+\hrule
+\section*{Lecture 3}
+\begin{defn}
+    Binary operation: A binary operation $*$ on a set G is a function $*:G\times G \to G$. For any $a, b \in G$, we can write $a*b$ for $*(a,b)$. 
+\end{defn}
+If $*$ is an binary operation on $G$ and $H$ is a subset of $G$. If restriction of $*$ on $H$ is a binary operation on $H$ i.e. $a,b \in H \implies a*b \in H$ also then $H$ is closed under $*$.
+
+If $*$ is associative (or commutative) on $G$ then it will be associative (or communtative) on $H$ also.
+\begin{defn}
+    Group: A group is an ordered pair $(G, *)$ where $G$ is a set and $*$ is a binary operation on $G$ satisfying following axioms.
+    \begin{enumerate}
+        \item $(a*b)*c = a*(b*c), \forall a,b,c \in G$ i.e. $*$ is associative.
+        \item There exists an element $e$ in $G$, called identity of $G$, such that for all $a \in G$ we have $a*e = e*a = a$.
+        \item for each $a \in G$ there is an element $a^{-1}$ of $G$, called an inverse of $a$, such that $a * a^{-1} = a^{-1} * a = e$.
+    \end{enumerate}
+\end{defn}
+The group $G$ is called an abelian (or communtative) if $a*b = b*a$ for all $a,b \in G$.
+$G$ is called finite group if it is a finite set.\\
+\textbf{Example: }
+\begin{enumerate}
+    \item $(V, +)$ where $V$ is a vector space and $+$ is vector addition, is an additive group since operation defined is $+$. It is abelian group since $+$ is commutative.
+    \item For $n \in \mathbb{Z}^+$, $\mathbb{Z}/n\mathbb{Z}$ is a group under operation $+$ with $\bar{0}$ as identity and for $\bar{a}$ inverse is $\overline{-a}$, such that $\bar{a} + \overline{-a} = \bar{1}$. And we can prove that $+$ is an associative operation.
+\end{enumerate}
 
 \end{document}
