@@ -219,6 +219,25 @@ $G$ is called finite group if it is a finite set.\\
 \begin{enumerate}
     \item $(V, +)$ where $V$ is a vector space and $+$ is vector addition, is an additive group since operation defined is $+$. It is abelian group since $+$ is commutative.
     \item For $n \in \mathbb{Z}^+$, $\mathbb{Z}/n\mathbb{Z}$ is a group under operation $+$ with $\bar{0}$ as identity and for $\bar{a}$ inverse is $\overline{-a}$, such that $\bar{a} + \overline{-a} = \bar{1}$. And we can prove that $+$ is an associative operation.
+    \item For $n \in \mathbb{Z}^+$, the set $(\mathbb{Z}/n\mathbb{Z})^{\times}$ of equivalence classes $\bar{a}$ which have multiplicative inverses $\pmod n$ is an abelian group under multiplication of residue classes. We assume here that multiplication is well defined and associative. (We can prove that). Identity will be $\bar{1}$ and by the definition of $(\mathbb{Z}/n\mathbb{Z})^{\times}$ inverse exists in the set itself.
 \end{enumerate}
+\begin{defn}
+    Direct Product: If $(A, *)$ and $(B, @)$ are two groups, then $A \times B$ is called direct product, whose elements are those in the Cartesian product
+    $$ A \times B = \{(a,b) \mid a \in A, b \in B\}$$
+    and whose operations are defined component-wise
+    $$ (a_1, b_1)(a_2, b_2) =(a_1 * a_2, b_1 @ b_2)$$ The new set $A \times B$ will also be a group. 
+\end{defn}
+It can be prove easily as $A$ and $B$ both contains the inverse and identity element.
+\begin{prop}
+    If $G$ is a group under the operation $*$, then 
+    \begin{enumerate}
+        \item the identity element of $G$ is unique.
+        \item for each $a \in G,~ a^{-1}$ is uniquely determined.
+        \item $(a^{-1})^{-1} = a$ for all $a \in G$.
+        \item $(a*b)^{-1} = (b^{-1})*(a^{-1})$
+        \item for any $a_1, a_2. \dots a_n \in G$ the value of $a_1 * a_2. \dots *a_n \in G$ is independent of how the expression is bracketed (generalised associativity).
+    \end{enumerate}
+\end{prop}
+
 
 \end{document}
