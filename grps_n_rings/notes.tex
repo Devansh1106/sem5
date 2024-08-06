@@ -238,6 +238,19 @@ It can be prove easily as $A$ and $B$ both contains the inverse and identity ele
         \item for any $a_1, a_2. \dots a_n \in G$ the value of $a_1 * a_2. \dots *a_n \in G$ is independent of how the expression is bracketed (generalised associativity).
     \end{enumerate}
 \end{prop}
-
+\begin{proof}
+    \begin{enumerate}
+        \item Suppose for contradiction, there are two identities $e_1,e_2$ such that $e_1 \neq e_2$. Then $e_1 . e_2 = e_2$ (if $e_1$ is identity) and $e_1 . e_2 = e_1$ (if $e_2$ is identity). But the result of $e_1 . e_2$ should be same as left hand side is same for both equations. Hence $e_1 = e_2$.
+        \item Assume there exists two inverse of $a$, say $b,c$. If $e$ is the identity element then we have $a * b = e$ and $a * c = e$. Also, 
+        \begin{align*}
+            c &= c * e\\
+            c &= c * (a*b)\\
+            c &= (c*a) *b\\
+            c &= e * b\\
+            c &= b
+        \end{align*}
+        \item 
+    \end{enumerate}
+\end{proof}
 
 \end{document}
