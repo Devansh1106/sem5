@@ -51,6 +51,16 @@
         n &= 11 ~~\text{(least positive integer.)}
     \end{align*}
 \end{minipage}
+\paragraph*{Ans 2.} Given is 
+$$ |a_n - L| \leq \mu|a_{n-1} - L|$$
+If we replace $n \to n-1$, we get 
+$$|a_{n-1} - L| \leq \mu|a_{n-2} - L|$$
+Similarly, performing the replace operation $k$ times, we get
+$$ |a_n - L| \leq \mu|a_{n-1} - L| \leq \mu^2|a_{n-2} - L| \leq \mu^3|a_{n-3} - L| \leq \dots \mu^k|a_{n-k} - L|$$ 
+We choose $k$ such that $n-k \geq N \implies n-N \geq k$. Therefore, we get
+$$ |a_n - L| \leq \mu^{n-k}|a_{n-k} - L|$$
+Taking limits both sides,
+$ 0 \leq |a_n - L | \leq 0 \implies |a_n - L| = 0 \implies a_n \to L$. 
 \paragraph*{Ans 3.} For domain $[0,1]$, the range of the function $f(x) = sin(x) + x^2 -1$ is
 \begin{align*}
     R &= sin((0,1)) + ((0,1))^2 - 1\\
@@ -60,7 +70,8 @@
 \end{align*}
 Since, in the interval $(0,1)$ the function is taking the value $(-1, sin(1))$. It is going from negative to positive in $y$ hence it will definately cut the $x$ axis atleast once which will be the root.
 \paragraph*{Ans 4.} For $f(x) - x = 0 \label{1}$ in the interval $[0,1]$, if we take $ x= 0$, it is simple to observe that $ f(0) - 0 = 0$. Hence, $x= 0$ is the solution of the given equation \ref{1}in the interval $[0,1]$. $f(0) = 0$ also means that $0$ is the root of $f(x)$. 
-
+\paragraph*{Ans 5.} Since $g(x) = 0$, has atleast $n$ roots assume $x_1, x_2, \dots x_n$. This means that $g(x_1) = 0, g(x_2) = 0 \dots g(x_n) = 0$\\
+Using LMVT for $x_2$ and $x_1$, we have $g'(c_1) = \frac{g(x_2) - g(x_1)}{x_2 - x_1} = 0$ for some $c \in [x_1, x_2]$. Hence, after generalizing this argument from $[x_1, x_2]$ to $[x_{n-1}, x_n]$ we will get $n-1$ $c_i's$ such that $g'(c_i) = 0$. Hence, $g'(x)$ will have atleast $n-1$ roots. 
 \paragraph*{Ans 6.} Taylor's expansion of $f(x)$ at $x_0$ is
 $$ f(x) =  \sum\limits_{k=0}^{n} \frac{f^{(k)}(x_0) (x - x_0)^k}{k!} 
 $$ where $k \in \mathbb{Z^+}$. For $x_0 = 0$ and $n=3$, we can write
@@ -122,9 +133,9 @@ Since $0< \xi(x) < x = 1$ and $e^x$ is the increasing function, we have $ 0 < e^
     &= 1 + \frac{1}{2\sqrt{2}} - \frac{x^2}{8}
 \end{align*}
 Remainder term is 
-$$ R = \frac{x^3}{16(\xi(x)+1)^{5/2}}$$
+$$ R = \left|\frac{x^3}{16(\xi(x)+1)^{5/2}} \right|\leq \left|\frac{x^3}{16}\right|$$
 where $x_0 = 0 < \xi(x) < x$.
-We can obtain a bound for this term if we choose $x \in [0, \infty]$.
+We can obtain a bound for this term if we fix $x$.
 
 \paragraph*{Ans 10.} For $f(x) = \frac{1}{x}$, we have $f'(x) \frac{-1}{x^2}$, $f''(x) = \frac{2}{x^3}$ and $f'''(x) = \frac{-6}{x^4}$\\
 General expression for derivative will be
