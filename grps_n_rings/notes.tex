@@ -249,7 +249,22 @@ It can be prove easily as $A$ and $B$ both contains the inverse and identity ele
             c &= e * b\\
             c &= b
         \end{align*}
-        \item 
+        \item For some $a \in G$ inverse will be $(a)^{-1} \in G$ such that $aa^{-1} = e$ ($e$ is identity). Now, interchaning the position of the elements $a^{-1}a = e$, we have inverse of $a^{-1}$ is $a$ $\implies$ $(a^{-1})^{-1} = a$
+        \item Assume $c = (a * b)^{-1}$. Since $c \in G$, using property of inverse we have
+        \begin{align*}
+            c * (a * b) &= (a * b)^{-1} (a * b) = e\\
+            (c * a) * b &= e \\
+        \end{align*} 
+        Right multiply $b^{-1}$ on both sides
+        \begin{align*}
+            (c * a) * (b * b^{-1}) &= e * b^{-1}\\
+            c * a &= b^{-1}\\            
+        \end{align*}
+        Right multiply $a^{-1}$
+        \begin{align*}
+            c * (a * a^{-1}) &= b^{-1} * a^{-1}\\
+            c &= b^{-1} * a^{-1}
+        \end{align*}
     \end{enumerate}
 \end{proof}
 
