@@ -254,12 +254,12 @@ It can be prove easily as $A$ and $B$ both contains the inverse and identity ele
         \begin{align*}
             c * (a * b) &= (a * b)^{-1} (a * b) = e\\
             (c * a) * b &= e \\
-        \end{align*} 
+        \end{align*} \vspace*{-40pt}\\
         Right multiply $b^{-1}$ on both sides
         \begin{align*}
             (c * a) * (b * b^{-1}) &= e * b^{-1}\\
             c * a &= b^{-1}\\            
-        \end{align*}
+        \end{align*} \vspace*{-40pt}\\
         Right multiply $a^{-1}$
         \begin{align*}
             c * (a * a^{-1}) &= b^{-1} * a^{-1}\\
@@ -267,5 +267,14 @@ It can be prove easily as $A$ and $B$ both contains the inverse and identity ele
         \end{align*}
     \end{enumerate}
 \end{proof}
-
+\begin{prop}
+    Let $G$ be a group and let $a,b \in G$. The equations $ax = b$ and $ya = b$ have unique solutions for $x, y \in G$. In particular, the left and right cancellation laws hold in $G$, i.e.
+    \begin{enumerate}
+        \item if $au = av$, then $u = v$
+        \item if $ub = vb$, then $u = v$ 
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    We can solve $ax = b$ by multiplying both sides on the left by $a^{-1}$
+\end{proof}
 \end{document}
