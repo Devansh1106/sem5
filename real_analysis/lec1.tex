@@ -33,7 +33,7 @@
     Since, set $T$ is bounded above by all the elements of set $A$, it should have a least upper bound, say $M$ such that $ M > m~~ \forall m \in T$. Also, every element of $A$ is an upper bound of $T$ hence by definition of supremum, we can say $M \leq x~~ \forall x \in A$ hence $M$ is the lower bound of $A$. This makes it the greatest lower bound.
 \end{proof}
 \begin{lem}
-    Suppose $A \neq \phi$ and s = lub(A) then for any $y \in A$ such that $y < s$, $\exists a \in A$ such that $ y < a \leq s$.
+    Suppose $A \neq \phi$ and s = lub(A) then for any $y$ such that $y < s$, $\exists a \in A$ such that $ y < a \leq s$.
 \end{lem}
 \begin{proof}
     Suppose for contradiction, $\nexists$ any element $a$ such that $ y < a$. This means that $y \geq a, \forall a \in A$ $\implies$ $y$ is upper bound of set $A$. But $y$ is already less than least upper bound of set $A$. Hence contradiction. \\
@@ -63,7 +63,7 @@
     Any monotone increasing sequence of real numbers that is bounded above converges to some real number.
 \end{thm}
 \begin{proof}
-    Let $x_n$ be a monotone increasing sequence in $\mathbb{R}$ that is bounded above by $s$ i.e. $s = lub\{x_n \mid n \in \mathbb{N}\}$ \\
+    Let $x_n$ be a monotone increasing sequence in $\mathbb{R}$ that is bounded above hence there exits a $s$ such that $s = lub\{x_n \mid n \in \mathbb{N}\}$ \\
     Suppose $\epsilon > 0$ $\implies s - \epsilon < s$ and $s - \epsilon$ is not the upper bound of the $x_n$.\\ 
     Using lemma 1, we can say that $\exists x_\epsilon \in x_n$ such that $s - \epsilon < x_\epsilon < s$.\\
     Using monotone condition, for some $n_0 \in \mathbb{N}$, we have,
@@ -89,7 +89,7 @@
     $$ a_n \leq sup(a_n) \leq inf(b_n) \leq b_n ~~ \forall n \in \mathbb{N}$$
     Using density theorem, we can say that $\exists$ some $\mathbb{Q}$ between $sup(a_n)$ and $inf(b_n)$.\\
     Hence, $\bigcap\limits_{n \geq 1} I_n \neq \phi$.\\
-    Let the lenght of the interval to be $L = |b_n - a_n|$. Suppose for contradiction, we have two elements in $\bigcap\limits_{n\geq 1}I_n$ instead of one, say $x$ and $y$. \\ The distance between $x$ and $y$ is $|y - x|$. Since, $L \to 0$ hence $\exists n \in \mathbb{N}$ such that for some $n_0 \geq n$, $|L| = |b_{n_0} - a_{n_0}|< \epsilon$ for some $\epsilon > 0$. Since $|L| \to 0$, we can choose $\epsilon$ such that it is smaller than $|y - x|$. Then, if interval contains any one of the point, it can not contain the other.
+    Let the length of the interval to be $L = |b_n - a_n|$. Suppose for contradiction, we have two elements in $\bigcap\limits_{n\geq 1}I_n$ instead of one, say $x$ and $y$. \\ The distance between $x$ and $y$ is $|y - x|$. Since, $L \to 0$ hence $\exists n \in \mathbb{N}$ such that for some $n_0 \geq n$, $|L| = |b_{n_0} - a_{n_0}|< \epsilon$ for some $\epsilon > 0$. Since $|L| \to 0$, we can choose $\epsilon$ such that it is smaller than $|y - x|$. Then, if interval contains any one of the point, it can not contain the other.
 \end{proof}
 
 \hrule
@@ -100,14 +100,14 @@
     This set has a supremum and that is $z$ itself. We symbolically write $z = n_0.n_1n_2 \dots $
 \end{defn}
 \begin{lem}
-    Let $p$ be an integer $\geq 2$. If $0 \leq a_n \leq p-1$, where $a_n$ is an integer then $\sum\limits_{n=0}^{\infty} \frac{a_n}{p_n}$ converges to some $x$ in $[0,1]$.
+    Let $p$ be an integer $\geq 2$. If $0 \leq a_n \leq p-1$, where $a_n$ is an integer then $\sum\limits_{n=0}^{\infty} \frac{a_n}{p^n}$ converges to some $x$ in $[0,1]$.
 \end{lem}
 \begin{proof}
-    Since $0 \leq a_n \leq p-1$, we can replace all $a_n$ with $p-1$ and then we have$$ \sum\limits_{n=1}^{\infty} \frac{a_n}{p_n} \leq (p-1)\sum\limits_{n=1}^{\infty} \frac{1}{p_n} = 1$$
+    Since $0 \leq a_n \leq p-1$, we can replace all $a_n$ with $p-1$ and then we have$$ \sum\limits_{n=1}^{\infty} \frac{a_n}{p^n} \leq (p-1)\sum\limits_{n=1}^{\infty} \frac{1}{p^n} = 1$$
     Therefore, the sequence is bounded, and it is monotonic increasing this means it converges to some $x \leq 1$ and $x$ is already positive. Hence it converges tp some $x$ in $[0,1]$. 
 \end{proof}
 \begin{lem}
-    Conversely, given any  $ 0 \leq x \leq 1, \exists~ a_n \in \mathbb{Z}$ and $0 \leq  a_n \leq p-1$ such that $x = \sum\limits_{n=0}^{\infty} \frac{a_n}{p_n}$.
+    Conversely, given any  $ 0 \leq x \leq 1, \exists~ a_n \in \mathbb{Z}$ and $0 \leq  a_n \leq p-1$ such that $x = \sum\limits_{n=0}^{\infty} \frac{a_n}{p^n}$.
 \end{lem}
 \begin{proof}
     Suppose we have $0 < x \leq 1$ and $a_1$ is the largest integer such that $ \frac{a_1}{p} < x \leq 1$. Since $x$ is bounded above by $1$, we have $ a_1 < p$ $\implies$ $a_1 \leq p-1$ since $a_1$ is an integer. Similarly, find $a_2$ such that $\frac{a_1}{p} + \frac{a_2}{p^2} < x$.This can be achieved by Archimedean property. Also, note that $a_2 \leq p-1$, since we have 
@@ -129,7 +129,7 @@ Suppose $\{a_n\}$ is the bounded sequence in $\mathbb{R}$, we define two sets:
 \end{align*}
 Notice that $ \underset{k}{inf}(\{a_n\}) \leq s_n \leq S_n \leq \underset{k}{sup}(\{s_n\})$
 \begin{defn}
-    Lim superior and limit inferior: Let $a_n$ be the bounded sequence of real numbers then
+    Limit superior and limit inferior: Let $a_n$ be the bounded sequence of real numbers then
     \begin{align*}
         \lim inf(a_n) &= \lim_{n\to \infty} s_n\\
         \lim sup(a_n) &= \lim_{n\to \infty} S_n
@@ -179,10 +179,10 @@ Note that $s_n$ is the increasing sequence and $S_n$ is the decreasing sequence 
     We can have a natural number $f(1)+f(2)+\dots+f(n) > f(i)~~\forall i \in \mathbb{N}$ that does not have a preimage in $\{1,2, \dots, n\}$ hence the map is not bijective.
 \end{proof}
 \begin{thm}
-    A set is infinite iff there exists a bijection from $\mathbb{N}$ to the set.
+    A set is infinite iff there exists a one-one map from $\mathbb{N}$ to the set.
 \end{thm}
 \begin{proof}
-    $\implies$) For $1 \in \mathbb{N}$ there exist a image in $X$ say $f(1)$. Now, take $2 \in \mathbb{N}$ such that there exist a image $f(2) \in X\backslash \{1\}$. This means that $f(1) \neq f(2)$. Since for every $n \in \mathbb{N}$ we can have $f(n)$ in $X\backslash\{1,2, \dots, n-1\}$ as $X$ is also infinite. Hence, we have constructed a one-one to map from $\mathbb{N} \to X$.\\
+    $\implies$) For $1 \in \mathbb{N}$ there exist a image in $X$ say $f(1)$. Now, take $2 \in \mathbb{N}$ such that there exist a image $f(2) \in X\backslash \{1\}$. This means that $f(1) \neq f(2)$. Since for every $n \in \mathbb{N}$ we can have $f(n)$ in $X\backslash\{1,2, \dots, n-1\}$ as $X$ is also infinite. Hence, we have constructed a one-one map from $\mathbb{N} \to X$.\\
     ($\impliedby$ Since $\mathbb{N}$ is infinite and we have a one-one mapping from $\mathbb{N} \to X$ therefore for each $n \in \mathbb{N}$, we have only one $f(n) \in X$ and every $n \in \mathbb{N}$ has a image (it's a map). Hence, $X$ is infinite.
 \end{proof}
 \begin{defn}
@@ -250,14 +250,14 @@ $\mathcal{P(A)}$ is power set of $A$ and $X,Y \subset A$ then $X \leq Y$ iff $X 
 \hrule
 \section*{Lecture 4}
 \begin{defn}
-    Given $E \subset X$ where $X$ is partially order set, we say $E$ us totally ordered if any two elements of $E$ are comparable i.e. if $e_1,e_2 \in E$, then $e_1 \leq e_2$ or $e_2 \leq e_1$. Totally ordered $\equiv$ linearly order $\equiv$ chain.
+    Given $E \subset X$ where $X$ is partially order set, we say $E$ is totally ordered if any two elements of $E$ are comparable i.e. if $e_1,e_2 \in E$, then $e_1 \leq e_2$ or $e_2 \leq e_1$. Totally ordered $\equiv$ linearly order $\equiv$ chain.
 \end{defn}
 \begin{defn}
     Upper bound of $E$: An element is $x \in X$ is called upper bound of $E$ if for any $x' \in E$, we have $x' \leq x$. $x$ is called the maximal element if $x' \geq x \implies x' = x$.\\
     For maximal element, $x$ should be an upper bound for set $E$ and $x$ should belong to $E$.
 \end{defn}
-Let $X \neq \phi$. $\mathcal{F}$ is a collection of subsets of $X$ (element of $\mathcal{P(\text{X})}$). An element $F \in \mathcal{F}$ is a upper bound for a subfamily $\mathcal{F'}$ of $F$ provided every member of $\mathcal{F'}$ is a subset of $F$.\\
-$F$ will be the maximal element of $\mathcal{F}$ if it is not a proper subset (means not contained in) of any member if $\mathcal{F}$. 
+Let $X \neq \phi$. $\mathcal{F}$ is a collection of subsets of $X$ (element of $\mathcal{P(\text{X})}$). An element $F \in \mathcal{F}$ is a upper bound for a subfamily $\mathcal{F'}$ of $\mathcal{F}$ provided every member of $\mathcal{F'}$ is a subset of $F$.\\
+$F$ will be the maximal element of $\mathcal{F}$ if it is not a proper subset (means not contained in) of any member in $\mathcal{F}$. 
 \begin{lem}
     Zorn's lemma: Let $X$ be a partially order set. If every totally ordered subset of $X$ is bounded above then $X$ has a maximal element.
 \end{lem}

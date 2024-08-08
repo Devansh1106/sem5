@@ -164,7 +164,7 @@ For example: $\bar{0}$ = perfectly divisible by $n$. These residue classes parti
 The set of all these equivalence classes under this equivalence relation will be denoted by $\mathbb{Z}/n\mathbb{Z}$, called {\em integers modulo n} or {\em integer mod n}.\\
 The process of finding the equivalence class$\mod n$ of some integer $a$ is refered to as {\em reducing a$\mod n$}.
 
-Addition and multiplication for elements of $\mathbb{Z}/n\mathbb{Z}$:
+\textbf{Addition and multiplication for elements} of $\mathbb{Z}/n\mathbb{Z}$:
 $$ \overline{a} + \overline{b} = \overline{a+b}~~~\text{and}~~~ \overline{a} . \overline{b} = \overline{ab}$$
 This means that we can take any {\em representative} element from class $\bar{a}$ and any {\em representative} element from class $\bar{b}$ and then do usual addition (or multiplication) then find the class in which the result lies.
 
@@ -185,7 +185,7 @@ The result is well defined and does not depend upon the choice of representative
     $$ (\mathbb{Z}/n\mathbb{Z})^{\times} = \{ \bar{a} \in \mathbb{Z}/n\mathbb{Z} \mid \exists \bar{c} \in \mathbb{Z}/n\mathbb{Z} ~\text{with}~ \bar{a}.\bar{c} = 1\} $$
 \end{defn}
 \begin{prop}
-    Any representative of $\bar{a}$ is coprime to $n$.
+    Any representative $\bar{a}$ is coprime to $n$.
     $$(\mathbb{Z}/n\mathbb{Z})^{\times} = \{\bar{a} \in \mathbb{Z}/n\mathbb{Z} \mid (a,n) = 1\}$$
 \end{prop}
 If $a$ is integer which is coprime to $n$ then we can write $ax + ny = 1$ using Euclidean algorithm for some $x,y \in \mathbb{Z}$ $\implies$ $1 - ax = ny$ that means $ax = 1 \pmod n$ $ \implies$ $\overline{ax} = \bar{1}$ hence $\bar{x}$ is the multiplicative inverse of $\bar{a}$. Efficient way of calculating multiplicative inverse.
@@ -202,11 +202,11 @@ If $a$ is integer which is coprime to $n$ then we can write $ax + ny = 1$ using 
 \begin{defn}
     Binary operation: A binary operation $*$ on a set G is a function $*:G\times G \to G$. For any $a, b \in G$, we can write $a*b$ for $*(a,b)$. 
 \end{defn}
-If $*$ is an binary operation on $G$ and $H$ is a subset of $G$. If restriction of $*$ on $H$ is a binary operation on $H$ i.e. $a,b \in H \implies a*b \in H$ also then $H$ is closed under $*$.
+If $*$ is an binary operation on $G$ and $H$ is a subset of $G$. If restriction of $*$ on $H$ is a binary operation on $H$ i.e. $a,b \in H \implies a*b \in H$ then $H$ is closed under $*$.
 
 If $*$ is associative (or commutative) on $G$ then it will be associative (or communtative) on $H$ also.
 \begin{defn}
-    Group: A group is an ordered pair $(G, *)$ where $G$ is a set and $*$ is a binary operation on $G$ satisfying following axioms.
+    Group: A group is an ordered pair $(G, *)$ where $G$ is a set and $*$ is a binary operation on $G$ satisfying following axioms. $G$ should be closed under the binary operation.
     \begin{enumerate}
         \item $(a*b)*c = a*(b*c), \forall a,b,c \in G$ i.e. $*$ is associative.
         \item There exists an element $e$ in $G$, called identity of $G$, such that for all $a \in G$ we have $a*e = e*a = a$.
@@ -218,7 +218,7 @@ $G$ is called finite group if it is a finite set.\\
 \textbf{Example: }
 \begin{enumerate}
     \item $(V, +)$ where $V$ is a vector space and $+$ is vector addition, is an additive group since operation defined is $+$. It is abelian group since $+$ is commutative.
-    \item For $n \in \mathbb{Z}^+$, $\mathbb{Z}/n\mathbb{Z}$ is a group under operation $+$ with $\bar{0}$ as identity and for $\bar{a}$ inverse is $\overline{-a}$, such that $\bar{a} + \overline{-a} = \bar{1}$. And we can prove that $+$ is an associative operation.
+    \item For $n \in \mathbb{Z}^+$, $\mathbb{Z}/n\mathbb{Z}$ is a group under operation $+$ with $\bar{0}$ as identity and for $\bar{a}$ inverse is $\overline{-a}$, such that $\bar{a} + \overline{-a} = \bar{0}$. And we can prove that $+$ is an associative operation.
     \item For $n \in \mathbb{Z}^+$, the set $(\mathbb{Z}/n\mathbb{Z})^{\times}$ of equivalence classes $\bar{a}$ which have multiplicative inverses $\pmod n$ is an abelian group under multiplication of residue classes. We assume here that multiplication is well defined and associative. (We can prove that). Identity will be $\bar{1}$ and by the definition of $(\mathbb{Z}/n\mathbb{Z})^{\times}$ inverse exists in the set itself.
 \end{enumerate}
 \begin{defn}
@@ -275,6 +275,19 @@ It can be prove easily as $A$ and $B$ both contains the inverse and identity ele
     \end{enumerate}
 \end{prop}
 \begin{proof}
-    We can solve $ax = b$ by multiplying both sides on the left by $a^{-1}$
+    We can solve $ax = b$ by multiplying both sides on the left by $a^{-1}$ to get $x = a^{-1}b$. The uniqueness of $x$ follows from the uniqueness of the inverse. Similarly, for $ya = b$, multiplying $a^{-1}$ from right we get $y = ba^{-1}$. For $au = av$, if we multiply $a^{-1}$ from left we get $u = v$. Similarly, the right cancellation law holds.
 \end{proof}
+\begin{defn}
+    For $G$ a group and $x$ in $G$, we define the order of $x$ to be the smallest positive integer $n$ such that $x^n = 1$, and denote this integer by $|x|$.
+    If no positive power of $x$ is the identity then the order of $x$ is infinite.
+\end{defn}
+\textbf{Examples:}
+\begin{enumerate}
+    \item In the additive groups $\mathbb{Z},\mathbb{R},\mathbb{Q},\mathbb{C}$ every nonidentity element has infinite order.
+    \item In the multiplicative groups $\mathbb{R}\backslash\{0\}$ and $\mathbb{Q}\backslash\{0\}$, the element $-1$ has order $2$ rest all non identity elements have infinite order.
+\end{enumerate}
+\begin{defn}
+    Let $G = \{g_1, g_2, \dots, g_n\}$ be a finite group with $g_1 = 1$. The multiplication table or group table of $G$ is the $n\times n$ matrix whose $i, j$ entry is the group element $g_ig_j$.
+\end{defn}
+
 \end{document}
