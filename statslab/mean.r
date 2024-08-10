@@ -5,4 +5,3 @@ mean_value = function(data){
 }
 a = mean_value(data)
 print(a)
-
