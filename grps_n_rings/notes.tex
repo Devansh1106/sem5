@@ -354,4 +354,20 @@ For existence of inverse, since $\mathbb{Z}$ are symmetric about $0$ means for e
         \item $A\times B$ forms a group.
     \end{enumerate}
 \end{rem}
+\begin{thm}
+    Let $G$ be an finite group with even order. Then $G$ will have atleast an element of order 2.
+\end{thm}
+\begin{proof}
+    Since order of $G$ is even and it should contains $e$(identity, by the definition). This means, there will be odd number of nonidentity elements. Also, every element of the $G$ should have its inverse in $G$ hence we pair up the elements and their inverses which will leave us with a single element without a pair. By the definition, it should have its inverse in $G$ but $G$ is left with a single element. This implies that element should have self-inverse i.e. $a^2 = 1$ (order is $2$).
+\end{proof}
+\paragraph*{Ques. }Prove that if $x$ is an element of finite order of $G$, prove that the elements $1, x, x^2, \dots, x^{n-1}$ are all distinct. Deduce that $|x| \leq |G|$.
+\paragraph*{Ans. }For $x \in G~\text{such that}~x^n = e$(identity) and $x \neq e$ (for identity it is trivial), we have $x^1 = x \neq e$ as we assumed. For $ x^2 \neq x~\text{or}~x^2 \neq e$ since if $x^2 = x$ then $x$ is identity and if $x^2 = e$ then order of $x$ is $2$ which is not possible as $2 < n$. Hence, $x^2$ is distinct. With the similar arguments, we can proceed till $n-1$ as $x^n = e$ and at each step we are showing that the element is not one of the previous elements. Hence, all the elements $1, x, x^2, \dots, x^{n-1}$ are distinct.
+For $|x| \leq |G|$, $|G|$ must contain atleast $n$ elements (all powers of $x$) and there can also be any another element say $y \in G$. Hence, $|x| \leq |G|$.
+
+Another proof for above question can be: (easy one)
+\begin{proof}
+    For any $a \in G$, suppose for contradiction that there exist $i,j\in \mathbb{Z^+}, 0 \leq i,j \leq n$ such that $a^i = a^j \implies a^i-a^j = e \implies a^{i-j} = e$. This means that $i-j$ is the order of $a$ and $i-j < n$ but this is the contradiction to the fact that $a^n = e$. Hence, all elements are distinct. For $|x| \leq |G|$, its same as above. 
+\end{proof}
+
 \end{document}
+
