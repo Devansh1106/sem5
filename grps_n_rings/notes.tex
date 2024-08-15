@@ -393,6 +393,23 @@ Examples:
 3. $x * x = x$ for all $x \in S$.\\
 4. Equation $a * x = b$ has a solution $x \in S$ for all $a,b \in S$.\\ 
 We can also show that two structures are not isomorphic if one has some structure property that other does not have.
+\begin{rem}
+    If $x$ is an element of finite order $n$ in $G$ then
+    \begin{enumerate}
+        \item If $n$ is odd then no element is self inverse $\implies$ $x^i \neq x^{-i}$ for all $i = 1,2,\dots,n-1$.
+        \item If $n = 2k$, is even, the $x^i = x^{-i}$ iff $i = k$.
+    \end{enumerate}
+\end{rem}
+\paragraph*{Ques. }Prove that if $x$ is an element of finite order $n$ in $G$ then any integral power of $x$ will belong to this set $\{1, x, x^2, \dots, x^{n-1}\}$.
+\paragraph*{Ans. } Since $x^n = 1$ this means that all the integral power of $x$ for the integers $\{1,2, \dots, n-1\}$ is already in the set and $x^n = 1$ is already in the set. \\
+For any $m \in \mathbb{Z}$ such that $ m > n$, we can use write $m$ as $ m = nq + r$ such that $ 0 \leq r < n$.
+\begin{align*}
+    x^m &= x^{nq+r}\\
+    &= x^{nq} x^r\\
+    &= (x^n)^q x^r\\
+    &= x^r
+\end{align*}
+Therefore, for any $m > n$, we can write it as $x^r$ such that $ 0 \leq r < n$ and $x^r \in \{1, x, x^2, \dots, x^{n-1}\}$.
 
 \end{document}
 

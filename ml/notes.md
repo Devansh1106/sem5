@@ -44,7 +44,7 @@ np.std(wt)  # standard deviation
 stddata.describe()  # provide summary statistics for whole dataset
 wt.describe()       # summary statistics for weight
 ```
-##### Pairwaise relationship
+### Pairwaise relationship
 Use scatter plot.  
 To quantity it, use correlation coefficient(R), $-1 \leq R \leq 1$
 $$ R = \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum(x_i - \bar{x})\sum(y_i - \bar{y})}} $$
@@ -52,13 +52,34 @@ In python, we can use
 ```python
 np.corrcoef(data)
 ```
-#### Normal dataset 
+### Normal dataset 
 Dataset is following normal distribution. If we are using histogram, then the rectangles will follow the bell curve.  
 Peak will be at median of the data. And $ mean = median = mode$
 
-#### Approximate Normal dataset
+### Approximate Normal dataset
 Mean and median will be approximately equal.
 
-#### Skewed dataset
-Left tail skewed: peak shifted to the most left.
+### Skewed dataset
+Left tail skewed: peak shifted to the most left.  
 Right tail skewed: peak shifted to the most right.
+
+### Normal Random variable in python
+```python
+np.random.normal(0,1)   # normal(mean, standard_deviation); mean: centre of the bell curve 
+np.random.normal(0,1, 1000) # generate 1000 numbers that follow normal distribution 
+```
+### Binomial distribution in python
+```python
+np.random.binomial(0,1) # binomial(n, p, size=None)
+np.random.binomial(10, 0.5, 1000)   # generate 1000 numbers that follow binomial distribution 
+```
+
+### Poisson distribution in python
+```python
+np.random.poisson(10, 1000) # poisson(lam, size=None)
+```
+
+## Kernal Density Estimation(KDE)
+- It is the non parametric estimation of the probability density of the random varible.  
+- The objective of KDE is, given any sample it tried to extrapolate to the population.  
+$$ 
