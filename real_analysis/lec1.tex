@@ -15,6 +15,8 @@
 \newtheorem{defn}{Definition}
 \newtheorem*{rem}{Remark}
 \newtheorem{cor}{Corollary}
+\newtheorem{prop}{Proposition}
+
 
 \begin{document}
 \section*{Lecture 1}
@@ -267,7 +269,30 @@ $F$ will be the maximal element of $\mathcal{F}$ if it is not a proper subset (m
 If $\alpha$ and $\beta$ are cardinal numbers of set $X$ and set $Y$ such that $\alpha \leq \beta$ then there exists a one-one mapping from $X \to Y$.
 \begin{thm}
     Cantor-Schroeder-Bernstein theorem: If there exists a one-one mapping from $X \to Y$ and $Y \to X$ then there exists a bijection between $X$ and $Y$.
-\end{thm} 
+\end{thm}
+\subsection*{Limits of functions}
+\begin{defn}
+    Limit point: A point $a \in \mathbb{R}$ is called a limit point of a set $X \subseteq \mathbb{R}$ if for every neighbourhood $(a - \epsilon, a+ \epsilon), \epsilon>0$ there exists $x \in X$ such that $a \neq x$.  
+\end{defn}
+For a function $f$ defined on $X \subseteq \mathbb{R}$, $f$ converges to some $l$ means that for every $\epsilon > 0$ there exists a $\delta > 0$ such that
+$$ |f(x) - l| < \epsilon ~\forall x \in X \ni |x - a| < \delta$$ 
+Limit of functions as limit of sequences-
+\begin{prop}
+    Let $f:X\to \mathbb{R}$ and let $a$ be a limit of $X$. Then $lim_{x \to a} f(x) = l$ if and only if for every sequence $\{x_n\}_{n \geq 1}$ in $X$ that converges to $a$ and $x_n \neq a$ for all $n$, the sequence $\{f(x_n)\}_{n \geq 1}$ converges to $l$. 
+\end{prop}
+A function $f$ is continuous on $X$ if it is continuous in every point in $X$.
+\begin{defn}
+    Continuity of $f$: A function $f$ is said to be continuous at some point $x \in X$ if for every $\epsilon > 0$ there exists a $\delta > 0$ such that for all $y \in X$ and $|y - x| < \delta$, we have $|f(y) - f(x)| < \epsilon$.
+\end{defn}
+A function $f$ is continuous at a limit point $a \in X$ if and only if $f(a)$ is defined and $ lim_{x \to a} f(x) = f(a)$.
+\begin{prop}
+    Let $f$ be a real valued funtion defined on subset $X$ of $\mathbb{R}$ and $a \in X$ is the limit point of $X$. Then $f$ is continuous at $a$ if and only if for every sequence $\{x_n\}_{n \geq 1}$ that converges to $a$ and $x_n \neq a$ for every $n$, we have $lim f(x_n) = f(lim x_n) = f(a)$. Continuous function preserve convergence (maps convergent sequence into convergent sequences).  
+\end{prop}
+\begin{thm}
+    Bolzano intermediate value theorem: Let $I$ be an interval and $f: I \to \mathbb{R}$, if $a,b \in I$ and $\alpha \in \mathbb{R}$ satisfies $f(a) < \alpha < f(b)$ or $f(a) > \alpha > f(b)$ then there exists a point $c \in I$ between $a$ and $b$ such that $f(c) = \alpha$.
+\end{thm}
+\subsection*{Sequences of functions}
+Let $X \subseteq \mathbb{R}$. If for every $n = 1,2, \dots$, we assigned a real valued function $f_n$ defined on $X$ then $\{f_n\}_{n \geq 1}$ is called sequence of  functions.
 \subsection*{Metric Spaces}
 \begin{defn}
     Let $X \neq \phi$. A metric on $X$ is a function $d:X \times X \to [0, \infty)$ such that 
