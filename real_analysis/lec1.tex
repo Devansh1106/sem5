@@ -292,7 +292,108 @@ A function $f$ is continuous at a limit point $a \in X$ if and only if $f(a)$ is
     Bolzano intermediate value theorem: Let $I$ be an interval and $f: I \to \mathbb{R}$, if $a,b \in I$ and $\alpha \in \mathbb{R}$ satisfies $f(a) < \alpha < f(b)$ or $f(a) > \alpha > f(b)$ then there exists a point $c \in I$ between $a$ and $b$ such that $f(c) = \alpha$.
 \end{thm}
 \subsection*{Sequences of functions}
-Let $X \subseteq \mathbb{R}$. If for every $n = 1,2, \dots$, we assigned a real valued function $f_n$ defined on $X$ then $\{f_n\}_{n \geq 1}$ is called sequence of  functions.
+Let $X \subseteq \mathbb{R}$. If for every $n = 1,2, \dots$, we assigned a real valued function $f_n$ defined on $X$ then $\{f_n\}_{n \geq 1}$ is called sequence of  functions.\\
+\textbf{Point-wise convergence}\\
+A sequence is called point-wise convergent if for each $x \in X \subseteq \mathbb{R}$, the sequence $f_1(x), f_2(x), \dots$ of real numbers is convergent. \\
+\textbf{Point-wise limit} \\
+A function defined on $X$ is called a point-wise limit if for every $\epsilon > 0$ there exist $n_0 \in \mathbb{Z}$ depending on $x$ and $\epsilon$ such that for all $n \geq n_0$, we have $|f(x) - f_n(x)| < \epsilon$.
+
+A series $\sum\limits_{n = 1}^{\infty} x_n$ of real numbers converges to $x \in \mathbb{R}$ if the sequence of partial sums $\{s_n\}_{n\geq 1}$ converges to $x$ where $s_n = \sum\limits_{k = 1}^n x_k$ ($n_{th}$ partial sum).\\
+The limit $x = lims_n = lim_{n \to \infty}\sum\limits_{k = 1}^n x_k$ is called the sum of the series. In the case of functions, if for every $x \in X$, $\sum\limits_{n = 1}^{\infty} f(x_n)$ converges and if we define $f(x) = \sum\limits_{n = 1}^{\infty} f(x_n)$, the $f(x)$ is called the sum of the series $\sum\limits_{n = 1}^{\infty} f_n$.\\
+\textbf{Uniform convergence}\\
+A sequence of functions $\{f_n\}_{n \geq 1}$ defined on set $X \subseteq \mathbb{R}$ is said to be uniformly convergent on $X$ to $f$ if for every $\epsilon > 0$ there exists a $n_0 \in \mathbb{Z}$ (depending on $\epsilon$ only) such that for all $n \geq n_0$, we have $|f(x) - f_n(x)| < \epsilon$ for all $x \in X$.\\
+Thus, every uniformly convergent sequence is pointwise convergent but converse is not true always.\\
+\textbf{Uniform Convergence for series of functions}\\
+The series of functions $\sum\limits_{n=1}^{\infty}$ converges uniformly on $X$ if the sequence $\{s_n\}_{n \geq 1}$ partial sum of functions, where $s_n(x) = \sum\limits_{k=1}^n f_k(x), x \in X$ converges uniformly on $X$.
+\textbf{Cauchy Criterion of Uniform convergence}\\
+The sequence of functions $\{f_n\}_{n\geq 1}$ defined on $X \in \mathbb{R}$ converges uniformly on $X$ if and only if given $\epsilon > 0$ there exists $n_0$ such that for all $x \in X$, and all $m \geq n_0,n\geq n_0$ we have $|f_m(x) -f_n(x)| < \epsilon$.
+\begin{prop}
+    Suppose $\{f_n\}_{n\geq 1}$ is sequence of continuous functions defined on $X$ and it converges uniformly to $f$ then $f$ is continous.
+\end{prop}
+\subsection*{Basic Topology in $\mathbb{R}$}
+\begin{defn}
+    Open sets in $\mathbb{R}$: A subset $G$ of $\mathbb{R}$ is said to be open if for every $x \in G$, there is a neighbourhood $(x -\epsilon, x+\epsilon), \epsilon > 0$ that is contained in $G$.
+\end{defn}
+\begin{defn}
+    Open cover: A open cover of $X$ is a collection of $C = \{G_{\alpha} \mid \alpha \in I\}$ of open sets in $\mathbb{R}$ whose union contains the set $X$, $$ X \subseteq \bigcup\limits_{\alpha} G_{\alpha} $$ where $I$ is some indexing set.
+\end{defn}
+\begin{defn}
+    Sub-cover: If $C'$ is a subcollection of $C$ such that the union of sets in $C'$ also contains the set $X$ then $C'$ is called subcover from $C$ of $X$. If the number of sets in $C'$ is finite then we call it a finite subcover. 
+\end{defn}
+\begin{defn}
+    Compact set: A subset $X$ of $\mathbb{R}$ is said to be compact if every open cover of $X$ has a finite sub-cover. 
+\end{defn}
+\begin{prop}
+    (Heine-Borel Theorem) Let $X$ be a set of real numbers. Then the following statements are equivalent:
+    \begin{enumerate}
+        \item $X$ is closed and bounded.
+        \item $X$ is compact (every open cover has a finite subcover).
+        \item Every infinite subset of $X$ has a limit point in $X$.
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    $1\implies 2$) Suppose $X = [a,b]$ a infinite interval which is closed and bounded. We define a set $S$
+    $$ S = \{x \in [a,b] \mid \exists n \in I \ni [a,x] \subseteq \bigcup\limits_{i = 1}^{i = n} O_i\}$$
+
+    $S$ is non-empty as we can always choose $n$ such that $S$ contains atleast $a$. Also, $b$ is the upper bound of the set $S$ and then it should possess the least upper bound property. Let $\lambda = sup(S)$.
+
+    Basically, $S$ is a collection of all $x$ such that the interval $[a, x]$ has a finite subcover. Hence, we need to show that $\lambda$ is largest possible element of $S$ (i.e. $\lambda \in S$) for which $[a, \lambda]$ has a finite subcover and $\lambda = b$.
+
+    Since, $\lambda = sup(S)$ and $\lambda < b$ hence, $\lambda \in X$. This means that there exists atleast one open set $O_{\beta}$ that contains $\lambda$ for  some $\beta \in I$. Hence, for some $\epsilon > 0$, the neighbourhood $(\lambda - \epsilon, \lambda + \epsilon) \in O_{\beta}$. Since, $\lambda - \epsilon$ is not the supremum of set $S$. Therefore, there exists a element $x \in S$ such that $\lambda > x > \lambda - \epsilon$ $\implies$ $x \in O_{\beta}$. Also, $x \in S$ hence, by definition of $S$ the finite subcovers of $[a, x]$ are $\{ O_1, O_2, \dots, O_{n}\}$ for some fixed $n \in I$. Hence, adding $O_{\beta}$ to this set $\{ O_{beta}, O_1, O_2, \dots, O_{n}\}$ is also finite and it is subcover of set $[a, \lambda]$ $\implies$ $\lambda \in S$.
+
+    For proving $\lambda = b$, we have $\lambda \leq b$. Suppose for contradiction that $\lambda < b$ $\implies$ $b - \lambda > 0$. Define $y := \lambda + \frac{1}{2}\min(\epsilon, b-\lambda)$. This implies that belongs $y$ to neighbourhood of $\lambda$ $\implies$ $ y \in O_{\beta}$ and $y \in \bigcup\{ O_{\beta}, O_1, O_2, \dots, O_{n}\}$ $\implies y \leq \lambda$. But by definition $y > \lambda$. Hence, contradiction. Therefore, $y = b$ is the only possibility. This means that $X:= [a, b]$ has finite subcover hence $X$ is compact.
+\end{proof}
+\begin{proof}
+    $2 \implies 3$) Let a infinite subset $G$ of $X$ where $X$ is compact set. Suppose for contradiction $G$ does not have any limit point in $X$ TBD.
+\end{proof}
+\begin{prop}
+    Let $f$ be real-valued continuous function defined on closed and bounded interval $I = [a, b]$. Then $f$ is bounded on $I$ and it assumes its maximum and minimum values in the interval $I$ i.e. there are points $x_1, x_2 \in I$ such that $f(X_1) \leq f(x)  \leq f(x_2)$ for all $x \in X$.
+\end{prop}
+
+\paragraph*{Uniformly Continuous function}
+Let $f$ be real-valued continuous function defined on $X$. Then $f$ is said to be uniformly continuous if given $\epsilon > 0$, there is a $\delta > 0$ such that for all $x,y \in X$ with $|x - y| < \delta$, we have $|f(x) - f(y)| < \epsilon$.
+\begin{prop}
+    If a real-valued function $f$ is continous on a closed and bounded interval $I$ then $f$ is uniformly continuous on $I$.
+\end{prop}
+\subsection*{Sequences in $\mathbb{R}$}
+\begin{enumerate}
+    \item A convergent sequence in $\mathbb{Q}$ is a Cauchy sequence in $\mathbb{Q}$.
+    \item A Cauchy sequence in $\mathbb{Q}$ is bounded; in particular, every convergent sequence in $\mathbb{Q}$ is bounded.
+    \item Limit of a sequence say $\{x_n\}_{n \geq 1}$ is unique.
+\end{enumerate}
+\textbf{Let $F_Q$ denote the set of all cauchy sequence in $\mathbb{Q}$.}
+\begin{defn}
+    A sequence $\{x_n\}_{n \geq 1}$ in $F_Q$ is said to be equivalent to a sequence $\{y_n\}_{n \geq 1}$ in $F_Q$ if and only if $\lim_{n \to \infty}|x_n - y_n| = 0$. Notation of equivalence is $\{x_n\}_{n \geq 1} \sim \{y_n\}_{n \geq 1}$.
+\end{defn}
+\begin{prop}
+    If $\{x_n\}_{n\geq 1} \in F_Q$ then $\lim_{n \to \infty} x_n = x$ if and only if $\{x_n\} \sim \{x\}$, where $\{x\}$ denotes the constant sequence with each term is equal to $x$. 
+\end{prop}
+\begin{proof}
+    Follows from definition of equivalence relation.\\
+    Since, $\lim_{n \to \infty} |x_n - x| = 0$ (from definition) $\implies$ $\lim_{n \to \infty} x_n =  \lim_{n \to \infty} x = x$. Converse, is similar. 
+\end{proof}
+\begin{prop}
+    If $\{x_n\}$ and $\{y_n\}$ are in $F_Q$ then so the sequencs $\{x_n + y_n\}$ and $\{x_ny_n\}$.
+\end{prop}
+\begin{proof}
+    Apply cauchy criterion for each sequence and choose $\epsilon$ to be $\frac{\epsilon}{2}$. Then try to find $\epsilon$ bound for sequences $\{x_n + y_n\}$ and $\{x_ny_n\}$.
+\end{proof}
+\begin{prop}
+    If $\{x_n\}$, $\{y_n\}$, $\{x'_n\}$ and $\{y'_n\}$ are in $F_Q$ and $\{x_n\}\sim \{x'_n\}$, $\{y_n\}\sim \{y'_n\}$ then $\{x_n + x'_n\}\sim \{y_n + y'_n\}$ and $\{x_ny_n\} \sim \{x'_ny'_n\}$.
+\end{prop}
+\begin{proof}
+    For $\{x_n\}\sim \{x'_n\}$, $\{y_n\}\sim \{y'_n\}$ follows from writing modulus inequality $|a| - |b| \leq |a-b| \leq |a+b| \leq |a| + |b|$ and then applying sandwich theorem.
+
+    For $\{x_ny_n\} \sim \{x'_ny'_n\}$, we know that cauchy sequence in $\mathbb{Q}$ are bounded. Hence, there exists a rational $K_1,K_2$ such that $|x_n| \leq K_1$ and $|y'_n| \leq K_2$ for all $n$. We can write 
+    $$ |x_n - x'_n| < \frac{\epsilon}{2K_1}~\text{and}~|y_n - y'_n| < \frac{\epsilon}{2K_2}$$
+    \begin{align*}
+        |x_ny_n - x'_ny'_n| &= |x_ny_n - x_ny'_n + x_ny'_n - x'_ny'_n|\\
+        &= |x_n(y_n - y'_n) + y'_n(x_n - x'_n)|\\
+        &\leq |x_n||(y_n - y'_n) | + |y'_n||(x_n - x'_n)|\\
+        &< K_1\left(\frac{\epsilon}{2K_1}\right) + K_2\left(\frac{\epsilon}{2K_2}\right)\\
+        &< \frac{\epsilon}{2} + \frac{\epsilon}{2} < \epsilon
+    \end{align*}
+\end{proof}
 \subsection*{Metric Spaces}
 \begin{defn}
     Let $X \neq \phi$. A metric on $X$ is a function $d:X \times X \to [0, \infty)$ such that 
@@ -302,5 +403,47 @@ Let $X \subseteq \mathbb{R}$. If for every $n = 1,2, \dots$, we assigned a real 
         \item d(x,y) $\leq$ d(x,z) + d(z,y) for any $x,y,z \in X$.
     \end{enumerate}
 \end{defn}
+The metric space in which every cauchy sequence converges is called "complete" metric space.
+\begin{prop}
+    The function $f(x) = \frac{x}{1+x}, x \geq 0,$ is monotonically increasing. 
+\end{prop}
+\begin{proof}
+    For some $x, y \geq 0$ and $x > y$, we have $\frac{1}{1+x} < \frac{1}{1+y}$ and $1-\frac{1}{1+x} > 1-\frac{1}{1+y}$ $\implies$ $ \frac{x}{1+x} > \frac{y}{1+y}$. 
+\end{proof}
+\begin{thm}
+    For any two real numbers $x$ and $y$, this inequality holds
+    $$ \frac{|x+y|}{1+|x+y|} \leq \frac{|x|}{1+|x|} + \frac{|y|}{1+|y|}$$
+\end{thm}
+\begin{proof}
+    Using previous proposition, we can say if $|x+y| \leq |x| + |y|$ and the sequence $\frac{x}{1+x}, x \geq 0$ is monotonically increasing then
+    $$ \frac{|x+y|}{1+|x+y|} \leq \frac{|x| + |y|}{1+ |x| + |y|} = \frac{|x|}{1+|x| + |y|} + \frac{|y|}{1+|x| + |y|} \leq \frac{|x|}{1+|x|} + \frac{|y|}{1+|y|}$$ 
+\end{proof}
+\begin{prop}
+    Generalised AM-GM inequality: If $a > 0$ and $b > 0$ and if $0 \leq \lambda \leq 1$ is fixed, then
+    $$ a^{\lambda}b^{1-\lambda} \leq \lambda a + (1-\lambda)b$$ 
+\end{prop}
+\begin{proof}
+    Since, $ y = ln(x)$ is concave, then
+    \begin{align*}
+        ln(\lambda a + (1-\lambda)b) &\geq \lambda ln(a) + (1-\lambda)ln(b)\\
+        ln(\lambda a + (1-\lambda)b) &\geq ln(a^{\lambda} b^{1-\lambda})
+    \end{align*}
+Since $e^x$ is increasing function, we have
+$$ a^{\lambda} b^{1-\lambda} \leq \lambda a + (1-\lambda)b$$
+\end{proof}
+\begin{rem}
+    When $x \geq 0, y \geq 0$ and $p > 1$ and $\frac{1}{p} + \frac{1}{q} = 1$, we have 
+    $$ xy \leq \frac{1}{p}x^p + \frac{1}{q}y^q$$
+\end{rem}
+\begin{proof}
+    Replace $ a = x^p$, $b = y^q$ and take $\lambda = \frac{1}{p} \implies 1-\lambda = 1- \frac{1}{p} = \frac{1}{q}$
+\end{proof}
+\begin{thm}
+    (Holder's inequality) Let $x_i \geq 0$ and $y_i \geq 0$ for $i = 1,2, \dots, n,$ and suppose that $p > 1$ and $q > 1$ are such that $\frac{1}{p} + \frac{1}{q} = 1$. Then
+    $$ \sum\limits_{i=1}^n x_iy_i \leq \left(\sum\limits_{i=1}^nx_i^p\right)^{1/p} \left(\sum\limits_{i=1}^ny_i^q\right)^{1/q}$$
+    In the special case when $p = q = 2$, the above inequality reduces to 
+    $$ \sum\limits_{i=1}^n x_iy_i \leq \left(\sum\limits_{i=1}^nx_i^2\right)^{1/2} \left(\sum\limits_{i=1}^ny_i^2\right)^{1/2}$$
+    This is called \textbf{Cauchy-Schwarz inequality.}
+\end{thm}
 
 \end{document}
