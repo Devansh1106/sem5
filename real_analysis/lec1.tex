@@ -394,16 +394,7 @@ Let $f$ be real-valued continuous function defined on $X$. Then $f$ is said to b
         &< \frac{\epsilon}{2} + \frac{\epsilon}{2} < \epsilon
     \end{align*}
 \end{proof}
-\subsection*{Metric Spaces}
-\begin{defn}
-    Let $X \neq \phi$. A metric on $X$ is a function $d:X \times X \to [0, \infty)$ such that 
-    \begin{enumerate}
-        \item d(x,y) = 0 $\implies x = y$
-        \item d(x,y) = d(y,x)
-        \item d(x,y) $\leq$ d(x,z) + d(z,y) for any $x,y,z \in X$.
-    \end{enumerate}
-\end{defn}
-The metric space in which every cauchy sequence converges is called "complete" metric space.
+\subsection*{Inequalities}
 \begin{prop}
     The function $f(x) = \frac{x}{1+x}, x \geq 0,$ is monotonically increasing. 
 \end{prop}
@@ -445,5 +436,97 @@ $$ a^{\lambda} b^{1-\lambda} \leq \lambda a + (1-\lambda)b$$
     $$ \sum\limits_{i=1}^n x_iy_i \leq \left(\sum\limits_{i=1}^nx_i^2\right)^{1/2} \left(\sum\limits_{i=1}^ny_i^2\right)^{1/2}$$
     This is called \textbf{Cauchy-Schwarz inequality.}
 \end{thm}
-
+\begin{proof}
+    For the case of $x_i = 0$ and $y_i = 0$, it is trivially true.\\
+    For the case of $x_i > 0$ and $y_i > 0$, we can write the given inequality as 
+    $$ \sum\limits_{i = 1}^{n} \left(\frac{x_i}{\left(\sum\limits_{i = 1}^{n} x_i^p\right)^{1/p}} \frac{y_i}{\left(\sum\limits_{i = 1}^{n} y_i^q\right)^{1/q}} \right)\leq 1 $$
+    Replace $ x_i' = \frac{x_i}{\left(\sum\limits_{i = 1}^{n} x_i^p\right)^2}$ and $y_i' = \frac{y_i}{\left(\sum\limits_{i = 1}^{n} y_i^q\right)^2} $, also $x_i' \geq 0$ and $y_i' \geq 0$, we get $ \sum\limits_{n = 1}^{n} x_i'y_i' \leq 1$. \\
+    Now,  apply the Youngs inequality for $i = 1, 2, \dots, n$ and sum them up to get
+    $$ \sum\limits_{i = 1}^{n} x_i'y_i' \leq \frac{\sum x^p}{p} + \frac{\sum y^q}{q}$$
+    Since, $x_i > 0$ and $y_i > 0$ hence $\sum\limits_{n=1}^{n}x'^p \neq 0 \neq \sum\limits_{n=1}^{n}y'^q $ and it is equivalent to prove it for (some constant)
+    $$ \sum\limits_{n=1}^{n}x'^p = 1 = \sum\limits_{n=1}^{n}y'^q $$
+    Hence, we have
+    $$ \sum\limits_{i = 1}^{n} x_i'y_i' \leq \frac{1}{p} + \frac{1}{q} = 1$$
+    This proves the required inequality.
+\end{proof}
+\begin{thm}
+    (Minkowski's inequality) Let $x_i \geq 0$ and $y_i \geq 0$ for $ i = 1,2,\dots, n$ and suppose that $p \geq 1$. Then
+    $$ \left(\sum\limits_{i =1}^n(x_i + y_i)^p\right)^{1/p} \leq \left(\sum\limits_{i =1}^nx_i^p\right)^{1/p} + \left(\sum\limits_{i =1}^ny_i^q\right)^{1/q}$$  
+\end{thm}
+\begin{proof}
+    If $p = 1$, it is trivially true. So, assume $p > 1$, we have
+    $$ \sum\limits_{i=1}^n(x_i + y_i)^p = \sum\limits_{i=1}^{n} x_i(x_i + y_i)^{p-1} + \sum\limits_{i = 1}^n y_i(x_i + y_i)^{p-1}$$
+    Apply Holder's inequality for both terms on RHS
+    \begin{align*}
+        \sum\limits_{i=1}^n(x_i + y_i)^p &\leq \left(\sum\limits_{i=1}^n x_i^p \right)^{1/p} \left(\sum\limits_{i=1}^n (x_i + y_i)^{(p-1)q}\right)^{1/q} \\
+        &+ \left(\sum\limits_{i=1}^n y_i^p \right)^{1/p} \left(\sum\limits_{i=1}^n (x_i + y_i)^{(p-1)q}\right)^{1/q}\\
+        &\leq \left[\left(\sum\limits_{i=1}^n x_i^p\right)^{1/p} + \left(\sum\limits_{i=1}^n y_i^p\right)^{1/p}\right] \left(\sum\limits_{i=1}^n(x_i + y_i)^p\right)^{1/q}
+    \end{align*}
+    Divide both sides by $\left(\sum\limits_{i=1}^n(x_i + y_i)^p\right)^{1/q}$ as it is $\neq 0$ and we will get the required inequality. For the case of $\left(\sum\limits_{i=1}^n(x_i + y_i)^p\right)^{1/q} = 0$, proof is self-evident. 
+\end{proof}
+\begin{thm}
+    (Minkowski Inequality for infinite sums) Suppose that $p \geq 1$ and let $\{x_n\}_{n \geq 1}$ and $\{y_n\}_{n \geq 1}$ be sequences of non-negative terms such that $\sum\limits_{n=1}^{\infty} x_n^p$ and $\sum\limits_{n=1}^{\infty} y_n^p$ are convergent. Then $\sum\limits_{n=1}^{\infty} (x_n + y_n)^p$ is convergent. Moreover,
+    $$ \left(\sum\limits_{n =1}^{\infty}(x_i + y_i)^p\right)^{1/p} \leq \left(\sum\limits_{n =1}^{\infty}x_i^p\right)^{1/p} + \left(\sum\limits_{n =1}^{\infty}y_i^q\right)^{1/q} $$
+\end{thm}
+\begin{proof}
+    For any positive integer $m$, we can use Minkowski inequality for finite sums 
+    \begin{align*}
+        \left(\sum\limits_{n =1}^m(x_i + y_i)^p\right)^{1/p} &\leq \left(\sum\limits_{n =1}^mx_i^p\right)^{1/p} + \left(\sum\limits_{n =1}^my_i^q\right)^{1/q}\\
+        &\leq \left(\sum\limits_{n =1}^{\infty}x_i^p\right)^{1/p} + \left(\sum\limits_{n =1}^{\infty}y_i^q\right)^{1/q}
+    \end{align*}
+    Since, the sequence $\{(\sum\limits_{n =1}^m(x_i + y_i)^p)^{1/p}\}$ is increasing sequence(w.r.t m) of nonnegative real numbers and is bounded above by the sum in above equation. Hence, it is convergent and as $m \to \infty$ the limit is also bounded above by the sum. This proves the inequality.
+\end{proof}
+\begin{thm}
+    Let $p > 1$. For $ a \geq 0$ and $ b \geq 0$, we have
+    $$ (a + b)^p \leq 2^{p-1}(a^p + b^p)$$
+\end{thm}
+\begin{proof}
+    TBD
+\end{proof}
+\subsection*{Metric Spaces}
+\begin{defn}
+    Let $X \neq \phi$. A metric on $X$ is a function $d:X \times X \to [0, \infty)$ such that 
+    \begin{enumerate}
+        \item d(x,y) = 0 $\implies x = y$
+        \item d(x,y) = d(y,x)
+        \item d(x,y) $\leq$ d(x,z) + d(z,y) for any $x,y,z \in X$.
+    \end{enumerate}
+\end{defn}
+The metric space in which every cauchy sequence converges is called "complete" metric space.
+\subsection*{Examples of metric spaces}
+\begin{enumerate}
+    \item \textbf{The space of all bounded sequences.} Let $X$ be the set of all infinite sequences of numbers that are bounded $\{x_i\}_{i \geq 1}$ such that $sup|\{x_i\}| < \infty$. The metric on $X$ is defined as $d(x,y)= sup_i|x_i - y_i| ~(\leq sup_i|x_i - z_i| + sup_i|y_i - z_i|).$
+    \item \textbf{The space $l_p$.} Let $X$ be the set of all sequences $x = \{x\}_{i \geq 1}$ such that 
+    $$ \left(\sum\limits_{i = 1}^{\infty} |x_p|^p\right)^{1/p} < \infty,~~~~p \geq 1$$
+    If $\{x\}_{n \geq 1}$ and $\{y\}_{n \geq 1}$ are two sequences belong to $X$ then we define the metric as
+    $$ d(x,y) = \left(\sum\limits_{i = 1}^{\infty} |x_i - y_i|^p\right)^{1/p}$$
+    Minkowski inequality for infinite sequences makes it a suitable metric.
+    \item \textbf{The space of bounded functions.} Let $S$ be any nonempty set and $\mathcal{B(S)}$ denote the set of all real or complex-valued functions on $S$, each of which is bounded. i.e. 
+    $$ \sup\limits_{x \in S} |f(x)| < \infty$$
+    It can also be shown that $\sup\limits_{x \in S} |f(x) - g(x)| < \infty$. We defined metric as $d(f,g) = \sup\limits_{x \in S}|f(x) - g(x)|,~~~~ f,g \in \mathcal{B(S)}$. The metric $d$ is called \textbf{uniform metric} or \textbf{supremum metric}.
+    \item \textbf{The space of continuous functions.} Let $X$ be the set of all continuous functions defined on $[a,b]$, an interval in $\mathbb{R}$. For $f,g \in X$, define
+    $$ d(f,g) = \sup\limits_{x\in [a,b]} |f(x) - g(x)|$$
+    We can also defined another metric on the set $X$ as
+    $$ d(f,g) = \int_a^b |f(x) - g(x)| dx$$
+    Assume $h(x) \in X = C[a,b]$, we have
+    \begin{align*}
+        d(f,g) &= \int_a^b |f(x) - h(x) + h(x) - g(x)| dx\\
+        &\leq \int_a^b \left(|f(x) - h(x)| + |h(x) - g(x)| \right)dx\\
+        &\leq d(f,h) + d(h,g)
+    \end{align*}
+    \item \textbf{Metric on extended real line.} Let $X = \mathbb{R} \cup \{\infty\} \cup \{-\infty\}$. Define $f: X \to \mathbb{R}$ by the rule
+    $$ f(x) = \begin{cases}
+        \frac{x}{1+|x|} & \text{if } -\infty < x < \infty \\
+        1 & \text{if } x = \infty\\
+        -1 & \text{if } x = -\infty
+    \end{cases}
+    $$
+    We define metric using $f$ as 
+    $$ d(x,y) = |f(x) - f(y)|, ~~ x,y \in X$$
+    \begin{proof}
+        TBD
+    \end{proof}
+    
+\end{enumerate}
 \end{document}
+
