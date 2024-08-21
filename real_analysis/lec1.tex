@@ -395,7 +395,7 @@ Let $f$ be real-valued continuous function defined on $X$. Then $f$ is said to b
     \end{align*}
 \end{proof}
 \subsection*{Inequalities}
-\begin{prop}
+\begin{prop} \label{1}
     The function $f(x) = \frac{x}{1+x}, x \geq 0,$ is monotonically increasing. 
 \end{prop}
 \begin{proof}
@@ -524,9 +524,88 @@ The metric space in which every cauchy sequence converges is called "complete" m
     We define metric using $f$ as 
     $$ d(x,y) = |f(x) - f(y)|, ~~ x,y \in X$$
     \begin{proof}
-        TBD
+        For injectivity, if $f(x) = f(y)$, we need to prove that $x = y$. Notice that $xy > 0$ is the only possible case. Since, $xy < 0$ ($x$ and $y$ are of opposite sign) is not possible because then $f(x) \neq f(y)$.
+        \begin{align*}
+            \frac{x}{1 + |x|} &= \frac{y}{1+|y|}\\
+            x + x|y| &= y + y|x|\\
+            x &= y~~~~\text{$\because$ xy $>$ 0}
+        \end{align*}
+        Hence, $f$ is one - one function. The metric $d$ is positive, $d(x,y) = d(y,x)$ $d = 0 \implies f(x) = f(y) \implies x = y$ ($\because f$ is one-one). On the other hand, if $x = y$ then it is obvious that $f(x) = f(y) \implies d = 0$. \\
+        For triangle inequality, we can write
+        \begin{align*}
+            \left|\frac{x}{1+|x|} - \frac{1}{1+|y|}\right| &= \left|\frac{x}{1+|x|} - \frac{z}{1+|z|} + \frac{z}{1+|z|} - \frac{y}{1+|y|}\right| \\
+            &= \left| \left(\frac{x}{1+|x|} - \frac{z}{1+|z|}\right) + \left(\frac{z}{1+|z|} - \frac{y}{1+|y|}\right)\right|\\
+            &\leq \left|\frac{x}{1+|x|} - \frac{z}{1+|z|}\right| + \left|\frac{z}{1+|z|} - \frac{y}{1+|y|}\right|\\
+            &\leq d(x,z) + d(z,y)
+        \end{align*}
+        Hence, it is a metric.
     \end{proof}
-    
+    \item In the above example, we can choose $f(x) = \tan^{-1} x$. Since, it is one - one function, and $\tan^{-1} (\infty) = \pi/2, \tan^{-1} (-\infty) = -\pi/2$. Then the metric will be
+    $$ d(x, y) = |\tan^{-1} x - \tan^{-1} y|,~~~x,y \in X$$
+    \item Let $d$ be a metric on nonempty set $X$. The function defined as 
+    $$ e(x,y) = \min\{1, d(x,y)\},~~~~\forall x,y \in X$$ 
+    is a metric.
+    \begin{proof}
+        The above expression says two things $e(x,y) \leq 1$ and $e(x,y) \leq d(x,y)$. We need to prove that $e(x,y) \leq e(x,z) + e(z,y)$. Since, if either of the terms on RHS or both are less than $1$, the inequality is satisfied because $e(x,y) \leq 1$. If both the terms on RHS are less than $1$ then, we have 
+        $$ e(x,y) \leq \min\{1, d(x,y)\} \leq d(x,y) \leq d(x, z) + d(z,y) = e(x,z) + e(z,y)$$
+    \end{proof}
 \end{enumerate}
+\begin{prop}
+    Let $(X,d)$ be a metric space. Define $d':X \times X \to \mathbb{R}$ by 
+    $$ d'(x,y) = \frac{d(x,y)}{1 + d(x,y)}$$
+    Then $d'$ is a metric on $X$. Besides, $d'(x,y) < 1$ for all $x,y \in X$.
+\end{prop}
+\begin{proof}
+    All axioms of metric spaces are satisfied, we just need to show the triangle inequality. We need to prove that $d'(x,y) \leq d'(x,z) + d'(z,y)$. Since, we know that $\frac{x}{1+x}, x\geq 0$ is monotonically increasing sequence \ref{1}. And we also know that $d(x,y) \leq d(x,z) + d(z,y)$. Hence, combining these two arguments, we have
+    \begin{align*}
+        d'(x,y) =  \frac{d(x,y)}{1 + d(x,y)} &\leq \frac{d(x,z) + d(z,y)}{1 + d(x,z) + d(z,y)}\\
+        &= \frac{d(x,z)}{1 +  d(x,z) + d(z,y)} + \frac{d(z,y)}{1 +  d(x,z) + d(z,y)}\\
+        &\leq \frac{d(x,z)}{1 +  d(x,z)} + \frac{d(z,y)}{1 +  d(z,y)}(\because d(x,z),d(z,y) \geq 0)\\
+        &= d'(x,z) + d'(z,y)
+    \end{align*}
+\end{proof}
+\paragraph*{Examples}
+\textbf{The space of all sequences of numbers. } Let $X$ be the space of all sequence of numbers. Let $x = \{x_i\}_{i \geq 1}$ and $y = \{y_i\}_{i \geq 1}$ be elements of $X$. Define
+$$ d(x,y) = \sum\limits_{i=1}^{\infty}\frac{1}{2^i}\frac{|x_i - y_i|}{1 + |x_i - y_i|}$$
+is a metric.
+\begin{proof}
+    All the metric space axioms are satisfied, we only need to show for triangle inequality. Since, we know that $\frac{1}{2}, \frac{1}{2^2}, \dots$ are positive numbers hence we can conclude that
+    $$ \frac{1}{2}\frac{|x|}{(1 + |x|)} < \frac{1}{2}\frac{|y|}{(1 + |y|)},~~~~x < y$$
+    We can sum both the sides to a similar inequality as above and the fact that $|x_i - y_i| \leq |x_i - z_i| + |z_i - y_i|$ makes it clear to get the required result.    
+\end{proof}
+\begin{rem}
+    The above expression is not true in $\mathbb{R}^2$. In $\mathbb{R}^2$, if we define metric $d(x,y) = |x_2 - y_2|$ and  take $x = (0,0)$ and $y = (1,0)$ then we have $d(x,y) = 0$ but $x \neq y$. Hence, $d$ is not a metric in $\mathbb{R}^2$.
+\end{rem}
+\begin{defn}
+    Pseudometric: Let $X$ be a nonempty set. A pseudometric on $X$ is a mapping of $X \times X \to \mathbb{R}$ that satisfies the axioms
+    \begin{enumerate}
+        \item $d(x,y) \geq 0$.
+        \item $d(x,y) = 0~~\text{if}~~ x = y$
+        \item $ d(x,y) = d(y,x),~~~\forall x,y \in X$
+        \item $d(x,y) \leq d(x,z) + d(z,y),~~~\forall x,y,z \in X$.
+    \end{enumerate}
+\end{defn}
+\paragraph*{Example}
+Let $X$ be the set of all Riemann integrable functions on $[a,b]$. For $f,g \in X$, define
+$$ d(f,g) = \int_a^b |f(x) - g(x)| dx$$
+This is a pseudometric on $X$ but it is not a metric on $X$.\\
+\textbf{Counter example}\\
+Let
+$$ 
+f(x) = \begin{cases}
+        0 & \text{if}~~x=a\\
+        1 & \text{if}~~a < x \leq b
+    \end{cases}
+$$
+and $g(x) = 1~~\forall x \in [a,b]$. We can see that $d(f,g) = 0$ but $f \neq g$.
+\paragraph*{A equivalence relation on a pseudometric space generates a metric space. } Let $(X,d)$ be a pseudometric space. Define a relation $R$ on $X$ by 
+$$ xRy~~\text{if and only if}~~ d(x,y) = 0$$
+Then the relation $R$ is an equivalence relation on $X$ (for transitivity, $xRy$,$yRz$ then use triangle inequality for $d$ to get $d(z,x) \leq 0 \implies d(z,x) = 0$).\\
+The set of all equivalence classes denoted by $X/R$ forms a metric space with the metric defined as
+$$ \tilde{d}([x],[y]) = d(x,y)$$
+where $x \in [x],y \in [y]$ and the metric is independent of the choice of the representatives.
+\begin{proof}
+    (For the statement that the metric is well defined and it does not depend on the choice of the representative.)
+\end{proof}
 \end{document}
 
