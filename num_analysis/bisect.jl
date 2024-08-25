@@ -2,7 +2,7 @@ function bisection(a::Float64, b::Float64)
    if func(a)*func(b) > 0
     error("Invalid! interval.")
    elseif abs(func(a)*func(b) )<= 10e-20
-    if abs(func(a)) <= 10e-10
+    if abs(func(a)) <= 10e-20
         error("$a is a root.")
     elseif abs(func(b)) <= 10e-20
         error("$b is a root.")
