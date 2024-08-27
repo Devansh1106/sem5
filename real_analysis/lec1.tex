@@ -476,7 +476,7 @@ $$ a^{\lambda} b^{1-\lambda} \leq \lambda a + (1-\lambda)b$$
     \end{align*}
     Since, the sequence $\{(\sum\limits_{n =1}^m(x_i + y_i)^p)^{1/p}\}$ is increasing sequence(w.r.t m) of nonnegative real numbers and is bounded above by the sum in above equation. Hence, it is convergent and as $m \to \infty$ the limit is also bounded above by the sum. This proves the inequality.
 \end{proof}
-\begin{thm}
+\begin{thm} \label{22}
     Let $p > 1$. For $ a \geq 0$ and $ b \geq 0$, we have
     $$ (a + b)^p \leq 2^{p-1}(a^p + b^p)$$
 \end{thm}
@@ -605,7 +605,94 @@ The set of all equivalence classes denoted by $X/R$ forms a metric space with th
 $$ \tilde{d}([x],[y]) = d(x,y)$$
 where $x \in [x],y \in [y]$ and the metric is independent of the choice of the representatives.
 \begin{proof}
-    (For the statement that the metric is well defined and it does not depend on the choice of the representative.)
+    (For the statement that the metric is well defined and it does not depend on the choice of the representative.)\\
+    Let $x,x' \in [x]$ and $y,y' \in [y]$. We need to show that $d(x,y) = d(x',y')$. Using triangle inequality, we can say
+    \begin{align*}
+        d(x,y) &\leq d(x,x') + d(x',y') + d(y',y)\\
+        d(x,y) &\leq d(x',y')~~(\because x \sim x', y \sim y')
+    \end{align*}
+    By similar argument, we can show $d(x',y') \leq d(x,y)$. Hence, $d(x',y') = d(x,y)$ and the metric does not depend upon the choice of representative. It is easy to show that this is a metric.
 \end{proof}
+\subsection*{Sequences in metric spaces}
+\begin{defn}
+    Let $d$ be a metric on a set $X$ and $\{x_n\}$ be a sequence in the set $X$. An element $x \in X$ is said to be a limit of $\{x_n\}$ if, for every $\epsilon > 0$, there exist a natural number $n_0$ such that for all $n \geq n_0$,
+    $$ d(x_n, x) < \epsilon$$
+    Hence, $\{x_n\}$ converges to $x$.
+\end{defn}
+\begin{rem}
+    The limit $x$ of the sequence is always unique.
+\end{rem}
+\begin{proof}
+    Suppose there exists two limit points for the sequence $\{x_n\}$, $x_1$ and $x_2$. This means for given $\epsilon > 0$, there exists $n_1,n_2$ such that $d(x_n , x_1) < \frac{\epsilon}{2}~~\forall n_1 \geq n_0$ and $d(x_n , x_2) < \frac{\epsilon}{2}~~\forall n_2 \geq n_0$. Using triangle inequality, $d(x_1, x_2) \leq d(x_2,x_n) + d(x_n, x_1) = \epsilon$. Hence $x_1 = x_2$.
+\end{proof}
+\paragraph*{Examples}
+\begin{enumerate}
+    \item Let $X \in \mathbb{R}^n$ with metric
+    $$ d(x,y) = d_p(x,y) = \left(\sum_{j=1}^n|x_j - y_j|^p\right)^{1/p},$$
+    where $x = (x_1, x_2, \dots,x_n)$ and $y = (y_1,  y_2, \dots,y_n)$ are in $\mathbb{R}^n$ and $p \geq 1$. Let $x^{(k)} = (x_1^{(k)},x_2^{(k)},\dots,x_n^{(k)})$ be a sequence in $\mathbb{R}^n$ converges to $x = (x_1,x_2,\dots,x_n)$. 
+    $$ \lim_{k\to \infty}\left(\sum\limits_{j=1}^{n}|x_j^{(k)} - x_j|\right)^{1/p} = \epsilon~~\forall k \geq k_0$$
+    For every $\epsilon > 0$, there exists an integer $k_0(\epsilon)$ such that $|x_j^{(k)} - x_j| < \epsilon~~\forall k \geq k_0$. Hence, the sequence converges coordinatewise.\\
+    On the other hand, if for each $j = 1, 2, \dots, n$ there exists the integers $k_j$ such that $|x_j^{(k)} - x_j| < \frac{\epsilon}{n^{1/p}}$ for all $k \geq k_j$ then $k' = \max(k_1, k_2,\dots, k_n)$ we have
+    $$ \left(\sum\limits_{j=1}^{n}|x_j^{(k)} - x_j|\right)^{1/p} < \epsilon~~\forall k \geq k'$$
+    \textbf{Thus, convergence of sequences in $(\mathbb{R}^n,d_p)$ is equivalent to coordinatewise convergence.}
+    \item If metric is $ d_{\infty}(x_n,x) = \max\limits_j|x_j^{(k)} - x_j|$ ($\{x_n\}_{n \geq 1}$ same as above example) then for every $\epsilon > 0$ there exists an integer $k_0$ such that we have $\max\limits_j|x_j^{(k)} - x_j| < \epsilon$ for all $k \geq k_0$. Hence, $|x_j^{(k)} - x_j| < \epsilon$ for each $j = 1,2, \dots,n$. On the other hand, if for each $ j = 1,2,\dots, n$, there exists an integer $k_j$ such that $|x_j^{(k)} - x_j| < \epsilon$ for $ k \geq k_j$ then we can choose $ k' = \max(k_1, k_2, \dots, k_n)$ so that
+    $$ \max\limits_j|x_j^{(k)} - x_j| < \epsilon~~~\forall k \geq k'$$
+    Hence, in $(\mathbb{R}^n,d_{\infty})$ convergence \textbf{implies} coordinatewise convergence.
+    \item Similarly, convegence in the metric space with discrete metric also \textbf{implies} coordinatewise convergence.
+    \item For space of all sequences with metric 
+    $$ d(x,y) = \sum\limits_{j = 1}^{\infty} \frac{1}{2^j}\frac{|x_j^{(k)} - x_j|}{1 + |x_j^{(k)} - x_j|}$$
+    TBD
+    \item In this example \textbf{coordinatewise convergence does not imply convergence.}\\
+    Let $X = l_p(p \geq 1)$ and let $d(x,y) = (\sum_{k=1}^{\infty}|x_k - y_k|^p)^{1/p}$, where $\{x_k\}_{k \geq 1}$ and $\{y_k\}_{k \geq 1}$ are in $l_p$. Let $\{\{x_k\}_{k\geq 1}\}_{n \geq 1}$ be a sequence in $l_p$ that converges to $x \in l_p$
+    $$ \lim_{n \to \infty}d(x^{(n)}, x) = \lim_{n \to \infty}\left(\sum_{k=1}^{\infty}|x_k^{(n)} - x_k|^p\right)^{1/p}$$
+    Then for $\varepsilon > 0$ there exists a positive integer $n_0(\varepsilon)$ such that $$ \left(\sum_{k=1}^{\infty}|x_k^{(n)} - x_k|^p\right)^{1/p}$$
+    for all $ n \geq n_0(\varepsilon)$. Since $\varepsilon > 0$, it follows that $ \lim_{n \to \infty}x_k^{(n)} = x_k$ for each $k$.\\
+    The converse is not true. Counter example: Let $x_k^{(n)} = x_k + \mathcal{\delta}_{kn}$ where 
+    $$ \mathcal{\delta}_{kn} = \begin{cases}
+        0 & \text{if}~~k \neq n\\
+        1 & \text{if}~~k = n\\
+    \end{cases} 
+    $$
+    Here $ |x_k^{(n)} - x_k| = \mathcal{\delta}_{kn} = 0$ if $n > k$. Hence, $\lim_{n \to \infty} x_k^{(n)} = x_k$ for each $k$. But
+    $$ d(x^{(n)},x) = \left(\sum_{k=1}^{\infty}|x_k^{(n)} - x_k|^p\right)^{1/p} = 1 $$
+    for each $n$.. Thus $x^n \nrightarrow x$ in the $l_p$ metric.\\
+    But the below theorem holds.
+\end{enumerate}
+\begin{thm}
+    Let $\{x^{(n)}\}{n \geq 1}$ be a sequence in $l_p$ such that $\lim_{n \to \infty}x_k^{(n)} = x_k$ for each $k$, where $x = \{x_k\}_{k \geq 1}$ is an element of $l_p$. Suppose also that for every $ \varepsilon > 0$ there exists an integer $m_0(\varepsilon)$ such that
+    $$ \left(\sum\limits_{k = m+1}^{\infty} |x_k^{(n)}|^p \right)^{1/p} < \varepsilon$$ for $m \geq m_0(\varepsilon)$ and for all $n$. Then $\lim_{n \to \infty}d(x^{(n)}, x) = 0$.
+\end{thm}
+\begin{proof}
+    TBD(cumbersome to write)
+\end{proof}
+\subsection*{Cauchy Sequences}
+\begin{defn}
+    Let $d$ be a metric on set $X$. A sequence $\{x_n\}_{n \geq 1}$ in the set $X$ is said to be cauchy if, for every $\varepsilon > 0$ there exists a positive integer $n_0$ such that $d(x_n,x_m)< \varepsilon$ for all $n \geq n_0$ and $m \geq n_0$.
+\end{defn}
+\begin{rem}
+    In $\mathbb{R}$ and $\mathbb{C}$, a sequence is convergent if and only if it is cauchy.
+\end{rem}
+\begin{rem}
+    In general metric spaces, every convergent sequence is cauchy, converse is not necessarily true.
+\end{rem}
+\begin{prop}
+    A convergent sequence in a metric space is a Cauchy sequence.
+\end{prop}
+\begin{proof}
+    Assume $X$ is a metric space and $d$ is the metric defined on $X$. Let $\{x_n\}_{n \geq 1}$ is a convergent sequence and $x$ is the limit. For given $\varepsilon > 0$ there exists a positive integer $n_0$ such that $d(x_n, x) < \varepsilon$ for all $n \geq n_0$. Suppose $n,m \geq n_0$ such that $d(x_n, x) < \varepsilon$ and $d(x_m, x) < \varepsilon$. Then using triangle inequality, we can say $d(x_n, x_m) < \varepsilon$ hence the sequence is cauchy. 
+\end{proof}
+Converse, is however, not true. Counter example: for the set $X$ with metric $|x - y|$, sequence of rationals such as $1.4, 1.41, 1.414, \dots $ limit is $\sqrt{2}$ (means its converging and therefore its cauchy) which is irrational hence sequence is converging to a limit which does not belong to the set of rationals.\\
+Hence, Cauchy sequence does not need to converge to a point in the space.
+\begin{defn}
+    A metric space $(X,d)$ is said to be complete if every Cauchy sequences in $X$ is convergent.
+\end{defn}
+\textbf{Example:} $\mathbb{R},\mathbb{C}$ and $\mathbb{R}^n$ are complete with their usual metrics. A set of rationals with metric $|x - y|$ for all $x,y \in \mathbb{Q}$ is incomplete as there exits a sequence in $\mathbb{Q}$ ($1.4, 1.41, 1.414, \dots)$ converges to $\sqrt{2}$ which does not belong to $\mathbb{Q}$.
+\begin{defn}
+    Let $\{x_n\}_{n\geq 1}$ be a given sequence in a metric space $(X,d)$ and let $\{n_k\}_{k\geq 1}$ is sequence of positive integer $n_1 < n_2 < \dots$ Then the sequence $\{x_{n_k}\}_{k \geq 1}$ is called a subsequence of $\{x_n\}_{n\geq 1}$. If the subsequence converges then its limit is called subsequential limit. 
+\end{defn}
+\begin{rem}
+    A sequence $\{x_n\}_{n\geq 1}$ in $X$ converges to $x$ if and only if all of its subsequences converges      $x$.
+\end{rem}
+
 \end{document}
 
