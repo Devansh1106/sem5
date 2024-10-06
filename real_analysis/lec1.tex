@@ -691,8 +691,18 @@ Hence, Cauchy sequence does not need to converge to a point in the space.
     Let $\{x_n\}_{n\geq 1}$ be a given sequence in a metric space $(X,d)$ and let $\{n_k\}_{k\geq 1}$ is sequence of positive integer $n_1 < n_2 < \dots$ Then the sequence $\{x_{n_k}\}_{k \geq 1}$ is called a subsequence of $\{x_n\}_{n\geq 1}$. If the subsequence converges then its limit is called subsequential limit. 
 \end{defn}
 \begin{rem}
-    A sequence $\{x_n\}_{n\geq 1}$ in $X$ converges to $x$ if and only if all of its subsequences converges      $x$.
+    A sequence $\{x_n\}_{n\geq 1}$ in $X$ converges to $x$ if and only if all of its subsequences converges $x$.
 \end{rem}
+\begin{prop}
+    If a cauchy sequence of points in a metric space $(X,d)$, contains a convergent subsequence, then the sequence converges to the same limit as the subsequence.
+\end{prop}
+\begin{proof}
+    Let $\{x_n\}_{n \geq 1}$ be the cauchy sequence in the metric space $(X,d)$ then for given $\varepsilon > 0$ there exists a positive integer $n_0$ such that $d(x_n , x_m) < \varepsilon$ for all $n,m \geq n_0$. Let $\{x_{n_k}\}_{k \geq 1}$ be the convergent subsequence and its limit to be $x_n$. Therefore,
+    $$ d(x_{n_m}, x_n) < \varepsilon~~~~\forall n,m \geq n_0$$
+    Using triangle inequality, we can say (let $x$ is limit of main sequence)
+    $$ d(x,x_n) \leq d(x, x_{n_m}) + d(x_{n_m}, x_n) < d(x, x_{n_m}) + \varepsilon$$ whenever $m,n \geq n_0$. Taking $m \to \infty$,
+    $$ d(x, x_n) < \varepsilon$$ whenever $n \geq n_0$. So, $\{x_n\}_{n\geq 1}$ converges to $x$. ($d(x, x_{n_m}) < \varepsilon$ since, $\{x_{n_m}\}$ is a convergent subsequence $\implies$ cauchy and distance between two is less than $\varepsilon$ for cauchy sequences.)
+\end{proof}
 
 \end{document}
 
