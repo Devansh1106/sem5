@@ -9,14 +9,17 @@
 \setlength{\headheight}{14.49998pt}
 \fancyhead[L]{\small\leftmark}
 \fancyhead[R]{\small\rightmark}
-% \theoremstyle{definition}
+% \theoremstyle{plain}
 \newtheorem{thm}{Theorem}
 \newtheorem{lem}{Lemma}
+\theoremstyle{definition}
 \newtheorem{defn}{Definition}
 \newtheorem*{rem}{Remark}
 \newtheorem{cor}{Corollary}
 \newtheorem{prop}{Proposition}
+\newtheorem{ax}{Axiom}
 
+\newcommand{\N}{\mathbb{N}}
 
 \begin{document}
 \section*{Lecture 1}
@@ -703,6 +706,56 @@ Hence, Cauchy sequence does not need to converge to a point in the space.
     $$ d(x,x_n) \leq d(x, x_{n_m}) + d(x_{n_m}, x_n) < d(x, x_{n_m}) + \varepsilon$$ whenever $m,n \geq n_0$. Taking $m \to \infty$,
     $$ d(x, x_n) < \varepsilon$$ whenever $n \geq n_0$. So, $\{x_n\}_{n\geq 1}$ converges to $x$. ($d(x, x_{n_m}) < \varepsilon$ since, $\{x_{n_m}\}$ is a convergent subsequence $\implies$ cauchy and distance between two is less than $\varepsilon$ for cauchy sequences.)
 \end{proof}
-
+\subsection*{Axiom of Choice}
+\begin{ax}[Axiom of Choice]
+    For any collection of non-empty sets $C = \{A_i \mid i \in I\}$ where $I$ is some indexing set, there exists a function called counting function $f : C \to \cup_i A_i$. This function maps every $A_i$ to some element of $A_i$.
+\end{ax}
+Example of theorem that needs AOC:
+\begin{thm}
+    Countable union of the countable sets is countable.
+\end{thm}
+\begin{proof}
+    Let $C = \{S_n \mid n \in \N\}$. Each element of $C$ is countable hence there exists a surjection $f_j : \N \to S_j$. Consider $\cup_i S_i$ be the countable union of $S_i$. Define $k : \N \times \N \to \cup_i S_i$ such that $k(m,n) = f_m(n)$. For each $x \in \cup_i S_i \implies x \in S_j$ for some $j \in \N$. And there exists $n \in \N$ such that $f_j(n) = x$. Therefore $k(j,n) = f_j(n)$ and $k$ is a surjection. By lemma below, $\cup_iS_i$ is countable.
+\end{proof}
+\begin{lem}
+    The following statements are equivalent:
+    \begin{enumerate}
+        \item $S$ is countable.
+        \item $\exists$ a surjection from a subset of $\N \to S$.
+        \item $\exists$ an injection from $S \to \N.$
+    \end{enumerate}
+\end{lem}
+\begin{proof}
+    ($1 \implies 2$) Since we can count each element of $S$ hence it is a surjection.\\
+    ($2 \implies 3$) For each element $s$ of $S$ there exists atleast a $n \in \N$ such that $f(n) = s$. Take $\min\{n \in \N : f(n) = s\}$ and map $s$ to that minimum element. This will result in an injection.\\
+    ($3 \implies 1$) If there exists an injection from $S \to \N$ then there exists a surjection from a subset of $\N$ to $S$. Hence, $S$ is countable.
+\end{proof}
+\begin{rem}[\bf Where is AOC is used?]
+    Notice that there exists many surjection $f_j : \N \to S_j$ for each $j$. Let $C = \{E_j : j \in \N\}$ where each $E_j$ is a collection of surjections from $\N \to S_j$ for each $j$. Hence, we need to choose an element (surjection) for each element for $C$. This is allowed because of AOC.
+\end{rem}
+\begin{thm}
+    If $f : A \to B$ is a surjection, then $B$ is injective to a subset of $A$. 
+\end{thm}
+\begin{proof}
+    For each $b \in B$ there exists atleast $a \in A$ such that $f(a) = b$. Take $\min\{a \in A : f(a) = b\}$ or one of those $a$ for each $b \in B$. This defines the injection between $A$ and $B$.
+\end{proof}
+\begin{rem}
+    AOC is used when we make a choice of one of the $a \in A$ since there can be many possible $a$-s.
+\end{rem}
+\begin{defn}[Partial ordering relation on a set $P$]
+    A partial order on a set is a relation $\leq$ defined on a set that follows
+    \begin{enumerate}
+        \item $\forall x \in P, x \leq x$ (reflexive).
+        \item If $x, y \in P$ and $x \leq y$ and $y \leq x$ then $x = y$ (antisymmetry).
+        \item $\forall x, y, z \in P$, if $x \leq y$ and $y \leq z$ then $x \leq z$. 
+    \end{enumerate}
+    Any set $P$ which is partially ordered is called {\bf poset}. A set $C$ which is totally ordered and is a subset of $P$ is called a {\bf chain} of $P$.
+\end{defn}
+\begin{defn}[Total order on a set $C$]
+    A relation that is a partial order with additional condition that for $x,y \in C$, either $x \leq y$ or $y \leq x$ is true (comparability). Then set $C$ is {\it totally} ordered.
+\end{defn}
+\begin{rem}
+    Totally order relation is $\leq$ and strict totally order relation is $<$. Depending upon the definition of order relation (defined for strict or non-strict), we can say total order is an ordering relation (in case of non-strict) or strict totally order is an order relation (in case of strict).
+\end{rem}
 \end{document}
 

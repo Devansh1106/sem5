@@ -1,0 +1,2 @@
+- `maximum(x::Vector)`: maximum entry of the vector (`minimum` for minimum entry)
+- 
