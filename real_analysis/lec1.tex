@@ -18,8 +18,12 @@
 \newtheorem{cor}{Corollary}
 \newtheorem{prop}{Proposition}
 \newtheorem{ax}{Axiom}
+\newtheorem{eg}{Example}
+\newtheorem*{eg*}{Example}
 
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
 
 \begin{document}
 \section*{Lecture 1}
@@ -757,5 +761,35 @@ Example of theorem that needs AOC:
 \begin{rem}
     Totally order relation is $\leq$ and strict totally order relation is $<$. Depending upon the definition of order relation (defined for strict or non-strict), we can say total order is an ordering relation (in case of non-strict) or strict totally order is an order relation (in case of strict).
 \end{rem}
+\begin{eg*}
+\begin{enumerate}
+    \item Order relation on $\R$ is totally ordered due to trichotomy properties.
+    \item If the ordering relation is $a \in \Z \mid b \in \Z$ then it is a partial order (reflexive, antisymmetric, transitive). But it fails to be totally ordered ($3$ and $5$ are not related).
+    \item For the set $1,p ,p^2, \dots$ where $p$ is prime, we can see this is totally ordered with respect to above order relation. ({\bf Remark.} $1, p, p^2, \dots$ is a chain of poset $\Z$. Why prime? Because composite numbers and their multiples will be covered in multiples of primes.)
+\end{enumerate}
+\end{eg*}
+\begin{defn}[Boundedness of a subset $C$ of poset $P$]
+    We say subset $C$ in a poset $P$ is bounded, or has an upper bound, if $\exists M \in P$ so that $\forall q \in C, q \leq M$.   
+\end{defn}
+\begin{ax}[Zorn's lemma]
+    Given a poset $P$, if for every chain $C$ of $P$, there exists an upper bound $M_c$ in $P$, then $P$ has a maximal element with respect to $\leq$ (i.e. $\exists M \in P$ such that $\forall x \in P, x \leq M$.)
+\end{ax}
+\begin{thm}[Cantor's theorem]
+    For any set $A$, there does not exist any surjection from $A$ to $P(A)$.
+\end{thm}
+\begin{proof}
+    Suppose for constradiction that there exists a surjection $f: A \to P(A)$. This means that for each $B \subset P(A)$, there exists $a \in A$ such that $f(a) = B$. Also, $P(A)$ is injective to some subset $A'$ of $A$ (we can construct this by taking minimum of all $a$'s for which $f(a) = B$). Now, $f$ is surjection as well as injection hence $|A'| = |P(A)|$ which is a contradiction. Therefore, there does not exists any surjection from $A \to P(A)$.
+\end{proof}
+
+\subsection*{The Real and Complex fields}
+\begin{ax}[Completeness axiom for the Real Number Field]
+    Every non empty subset of $\R$ that is bounded above has a supremum.
+\end{ax}
+\begin{cor}
+    Every non empty subset of $\R$ that is bounded below has an infimum.
+\end{cor}
+\begin{proof}
+
+\end{proof}
 \end{document}
 
